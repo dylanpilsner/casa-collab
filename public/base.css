@@ -1,0 +1,20 @@
+:root {
+  --main-orange: #f5ac52;
+  --secondary-orange: #ff9052;
+  --cooper: #c36c3b;
+  --english-walnut: #49312a;
+  --dairy-cream: #f9dcc0;
+  --tan: #d1a88c;
+  --almost-black: #23272a;
+  --grey-500: #fafaff;
+  --main-font: "Nunito Sans";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
