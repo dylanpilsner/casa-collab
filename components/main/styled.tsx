@@ -5,6 +5,7 @@ export const MainContainer = styled.main`
    flex-direction: column;
    padding: 0 5%;
    gap:2rem;
+   font-family: var(--main-font);
    @media (max-width: 1020px) {
       padding: 0 1%;
   }
@@ -12,7 +13,6 @@ export const MainContainer = styled.main`
 
 export const Article = styled.article`
    text-align:center;
-   font-family: var(--main-font);
 `
 
 export const ContainerPrice = styled.div`
@@ -58,4 +58,23 @@ export const Button = styled.button`
    color:#fff;
    font-size:1.3rem;
    cursor:pointer
+`
+export const Input =styled.input`
+   width: 100%;
+   height: 2rem;
+   border: none;
+   border-bottom: 1px solid #87BFFF;
+   :focus{
+      border: 8px solid #87BFFF ;
+   }
+   :hover{
+      border: 8px solid #87BFFF ;
+   }
+   :active{
+      border: 8px solid #87BFFF ;
+   }
+`
+export const Label =styled.label`
+  display: block;
+  font-weight: 600;
 `

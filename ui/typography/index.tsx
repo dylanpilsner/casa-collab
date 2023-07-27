@@ -6,7 +6,7 @@ export const Titulo = styled.h1`
   text-align: center;
 `;
 export const SubTitle = styled.h2`
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   text-align: center;
 `;
 export const Body = styled.p<any>`

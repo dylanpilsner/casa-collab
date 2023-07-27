@@ -7,7 +7,7 @@ import Finance from '@/ui/icons/finance.svg'
 import Progress from '@/ui/icons/progress-tracking.svg'
 import Check from '@/ui/icons/check.svg'
 import NotCheck from '@/ui/icons/notCheck.svg'
-import {Article,PrimerContenedor,MainContainer,ContainerPrice,CheckDiv,Button} from './styled'
+import {Article,PrimerContenedor,MainContainer,ContainerPrice,CheckDiv,Button,Input,Label} from './styled'
 import { Buy } from '../buy'
 import { useState } from 'react'
 
@@ -20,6 +20,7 @@ export function Main(){
    const handleClose= (e:any)=>{
       setWinOpen(false)
    }
+
    return (
       <MainContainer>
          <Article>
@@ -114,9 +115,26 @@ export function Main(){
             </div>
          </Article>
 
-         <form action="">
-             
-         </form>       
+        <div style={{backgroundColor: "#FAFAFF",display:"flex",justifyContent:"space-evenly",padding:"1rem"}}>
+             <SubTitle>Contáctame</SubTitle>
+            <form action="" style={{display:"flex",flexDirection:"column",gap:"1rem"}}>
+               <div>
+                  <Label htmlFor="name">Tu nombre</Label>
+                  <Input type="text" name="name" id="name" />
+               </div>
+               <div>
+                  <Label htmlFor="email">Tu email</Label>
+                  <Input type="email" name="email" id="email" />
+               </div>
+               <div>
+                  <Label htmlFor="descripcion">Descripcion</Label>
+                  <textarea name="descripcion" id="descripcion" cols={30} rows={10}></textarea>
+               </div>
+               <div style={{display:"inherit",justifyContent:"center"}}>  
+                  <Button>Enviar</Button>
+               </div>
+            </form>       
+        </div>
          
       </MainContainer>
    )
