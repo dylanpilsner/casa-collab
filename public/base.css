@@ -1,5 +1,6 @@
 :root {
   --main-orange: #f5ac52;
+  --orange-subtone: #dd9b4a;
   --secondary-orange: #ff9052;
   --cooper: #c36c3b;
   --english-walnut: #49312a;
@@ -17,4 +18,10 @@
 body {
   margin: 0;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
