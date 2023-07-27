@@ -27,6 +27,10 @@ export const NavItem = styled.a`
   font-family: var(--main-font);
   color: var(--almost-black);
   font-size: 48px;
-  font-weight: 800;
+  font-weight: 700;
   position: relative;
+
+  @media (min-width: 869px) {
+    font-size: 18px;
+  }
 `;

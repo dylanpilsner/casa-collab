@@ -5,6 +5,7 @@ import { Burger } from "../burger";
 import { useState } from "react";
 import { NavMenu } from "../mobile-nav-menu";
 import { MainButton } from "@/ui/buttons";
+import { DesktopNavMenu } from "../desktop-nav-menu";
 
 export function Header() {
   const [navMenuStatus, setNavMenuStatus] = useState("") as any;
@@ -22,6 +23,7 @@ export function Header() {
       <HeaderContainer>
         <Logo />
         <Burger callback={toggleNavMenu} menuStatus={navMenuStatus} />
+        <DesktopNavMenu />
         <MainButton text="Contacto" />
       </HeaderContainer>
       <NavMenu status={navMenuStatus} />
