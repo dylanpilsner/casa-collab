@@ -15,9 +15,7 @@ export const Body = styled.p<any>`
   font-size: 1rem;
   text-align: ${((props: any) => props.align) || "center"};
 
-  @media(max-width:1020px){
-    text-align: center !important;
-  }
+
 `;
 
 export const LogoText = styled.span`
