@@ -82,7 +82,7 @@ function defineClassName(className: any) {
 }
 
 export const BurgerPiece = styled.div`
-  background-color: var(--off-nav);
+  background-color: var(--almost-black);
   height: 2px;
   width: 100%;
   animation-duration: 0.3s;

@@ -1,18 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BurgerContainer, BurgerPiece } from "./styled";
 
 type Burger = {
   callback: () => void;
+  menuStatus: "opened" | "closed";
 };
 
-export function Burger({ callback }: Burger) {
+export function Burger({ callback, menuStatus }: Burger) {
   const [burgerStatus, setBurgerStatus] = useState("");
   const [burgerStatusTop, setBurgerStatusTop] = useState("");
   const [burgerStatusMiddle, setBurgerStatusMiddle] = useState("");
   const [burgerStatusBottom, setBurgerStatusBottom] = useState("");
 
-  function handleClick() {
-    if (!burgerStatus) {
+  useEffect(() => {
+    if (menuStatus === "opened") {
       setBurgerStatus("opened");
       setBurgerStatusTop("top-opened");
       setBurgerStatusMiddle("middle-opened");
@@ -23,6 +24,9 @@ export function Burger({ callback }: Burger) {
       setBurgerStatusMiddle("middle-closed");
       setBurgerStatusBottom("bottom-closed");
     }
+  }, [menuStatus]);
+
+  function handleClick() {
     callback();
   }
 
