@@ -115,25 +115,27 @@ export function Main(){
             </div>
          </Article>
 
-        <div style={{backgroundColor: "#FAFAFF",display:"flex",justifyContent:"space-evenly",padding:"1rem"}}>
+        <div style={{backgroundColor: "#FAFAFF",display:"flex",justifyContent:"space-evenly",padding:"1rem",flexWrap:"wrap"}}>
              <SubTitle>Contáctame</SubTitle>
-            <form action="" style={{display:"flex",flexDirection:"column",gap:"1rem"}}>
-               <div>
-                  <Label htmlFor="name">Tu nombre</Label>
-                  <Input type="text" name="name" id="name" />
-               </div>
-               <div>
-                  <Label htmlFor="email">Tu email</Label>
-                  <Input type="email" name="email" id="email" />
-               </div>
-               <div>
-                  <Label htmlFor="descripcion">Descripcion</Label>
-                  <textarea name="descripcion" id="descripcion" cols={30} rows={10}></textarea>
-               </div>
-               <div style={{display:"inherit",justifyContent:"center"}}>  
-                  <Button>Enviar</Button>
-               </div>
-            </form>       
+            <div >
+               <form action="" style={{display:"flex",flexDirection:"column",gap:"1rem"}}>
+                  <div>
+                     <Label htmlFor="name">Tu nombre</Label>
+                     <Input type="text" name="name" id="name" />
+                  </div>
+                  <div>
+                     <Label htmlFor="email">Tu email</Label>
+                     <Input type="email" name="email" id="email" />
+                  </div>
+                  <div>
+                     <Label htmlFor="descripcion">Descripcion</Label>
+                     <textarea name="descripcion" id="descripcion" cols={30} rows={10} style={{border:"1px solid #000"}}></textarea>
+                  </div>
+                  <div style={{display:"inherit",justifyContent:"center"}}>  
+                     <Button>Enviar</Button>
+                  </div>
+               </form>       
+            </div>
         </div>
          
       </MainContainer>

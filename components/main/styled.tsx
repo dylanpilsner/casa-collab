@@ -63,16 +63,8 @@ export const Input =styled.input`
    width: 100%;
    height: 2rem;
    border: none;
-   border-bottom: 1px solid #87BFFF;
-   :focus{
-      border: 8px solid #87BFFF ;
-   }
-   :hover{
-      border: 8px solid #87BFFF ;
-   }
-   :active{
-      border: 8px solid #87BFFF ;
-   }
+   border-bottom: 1px solid #000;
+
 `
 export const Label =styled.label`
   display: block;
