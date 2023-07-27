@@ -16,12 +16,15 @@ export const Article = styled.article`
 `
 
 export const ContainerPrice = styled.div`
-   display:flex;
+   display: flex;
    flex-direction: column;
    align-items: center;
    flex-wrap: wrap;
-   border:1px solid #D7D7D7;
-   padding:20px;
+   border: 1px solid #D7D7D7;
+   padding: 20px;
+   border-radius: 20px;
+   border-bottom: 4px solid #D6D7D6;
+   border-left: 4px solid #D6D7D6;
    @media (max-width: 1020px) {
       padding: 5%;
       margin: 1rem 0.1rem;
