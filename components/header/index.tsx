@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 
 export function Header() {
   const [navMenuStatus, setNavMenuStatus] = useState("") as any;
+  const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
 
   function goTo(url: string) {
@@ -22,7 +23,9 @@ export function Header() {
     }
   }
 
-  const [scrolled, setScrolled] = useState(false);
+  function closeNavMenu() {
+    setNavMenuStatus("closed");
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +52,7 @@ export function Header() {
         <DesktopNavMenu />
         <MainButton text="Contacto" callback={() => goTo("#contact")} />
       </HeaderContainer>
-      <NavMenu status={navMenuStatus} />
+      <NavMenu status={navMenuStatus} closeNavMenu={closeNavMenu} />
     </StyledHeader>
   );
 }

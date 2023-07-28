@@ -5,17 +5,26 @@ import { NavTriangle } from "@/ui/shapes/styled";
 
 type NavMenu = {
   status: "closed" | "opened";
+  closeNavMenu?: any;
 };
 
-export function NavMenu({ status }: NavMenu) {
+export function NavMenu({ status, closeNavMenu }: NavMenu) {
   return (
     <StyledNavMenu className={status}>
       <NavTriangle />
       <ColumnBox gap="60px">
-        <NavItem>Features</NavItem>
-        <NavItem>Pricing</NavItem>
-        <NavItem>Social medias</NavItem>
-        <NavItem>Contacto</NavItem>
+        <div onClick={closeNavMenu}>
+          <NavItem href="#features">Features</NavItem>
+        </div>
+        <div onClick={closeNavMenu}>
+          <NavItem href="#pricing">Pricing</NavItem>
+        </div>
+        <div onClick={closeNavMenu}>
+          <NavItem href="#social-medias">Social medias</NavItem>
+        </div>
+        <div onClick={closeNavMenu}>
+          <NavItem href="#contact">Contacto</NavItem>
+        </div>
       </ColumnBox>
     </StyledNavMenu>
   );
