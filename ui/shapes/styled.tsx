@@ -5,6 +5,7 @@ import ClickShape from "./click.svg";
 import PolygonShape from "./polygon.svg";
 import DotShape from "./dot.svg";
 import SquareShape from "./square.svg";
+import SeparatorShape from "./separator.svg";
 
 export const NavTriangle = styled(NavTriangleShape)`
   position: absolute;
@@ -59,5 +60,13 @@ export const Square = styled(SquareShape)`
 
   @media (min-width: 769px) {
     display: initial;
+  }
+`;
+
+export const Separator = styled(SeparatorShape)`
+  place-self: center;
+
+  @media (min-width: 1020px) {
+    display: none;
   }
 `;

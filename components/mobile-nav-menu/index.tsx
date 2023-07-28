@@ -14,7 +14,7 @@ export function NavMenu({ status }: NavMenu) {
       <ColumnBox gap="60px">
         <NavItem>Features</NavItem>
         <NavItem>Pricing</NavItem>
-        <NavItem>Newsletter</NavItem>
+        <NavItem>Social medias</NavItem>
         <NavItem>Contacto</NavItem>
       </ColumnBox>
     </StyledNavMenu>

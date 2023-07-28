@@ -10,8 +10,15 @@ import { Content, HeroContainer, HeroImg } from "./styled";
 import { HeroSubtitle, HeroTitle } from "@/ui/typography";
 import { CallButton } from "@/ui/buttons";
 import { ColumnBox } from "@/ui/box/styled";
+import { useRouter } from "next/router";
 
 export function Hero() {
+  const router = useRouter();
+
+  function goTo(url: string) {
+    router.push(url);
+  }
+
   return (
     <HeroContainer id="hero">
       <HeroTriangle src="/hero-triangle.png" />
@@ -27,7 +34,10 @@ export function Hero() {
             Convivir es fácil: Optimizá la distribución de tareas y gastos en tu
             hogar
           </HeroSubtitle>
-          <CallButton text="Empezar prueba gratis" />
+          <CallButton
+            text="Empezar prueba gratis"
+            callback={() => goTo("#pricing")}
+          />
         </ColumnBox>
         <HeroImg src="/couple.png" />
       </Content>

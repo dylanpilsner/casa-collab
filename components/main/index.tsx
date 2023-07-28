@@ -23,6 +23,7 @@ import { Buy } from "../buy";
 import { useState } from "react";
 import Close from "@/ui/icons/close.svg";
 import { Hero } from "../hero";
+import { sendForm } from "@/lib/api";
 
 export function Main() {
   const [winOpen, setWinOpen] = useState(false);
@@ -39,6 +40,12 @@ export function Main() {
     e.preventDefault();
     setCloseForm(false);
   };
+
+  async function submitForm(e: any) {
+    e.preventDefault();
+    const target = e.target;
+    await sendForm(target);
+  }
 
   return (
     <MainContainer>
@@ -77,10 +84,10 @@ export function Main() {
               Mantén un seguimiento en tiempo real
             </h3>
             <Body>
-              Con nuestra aplicación, podrás realizar un seguimiento en tiempo
-              real de las tareas completadas y los gastos registrados. Mantén a
-              todos los miembros del hogar inhtmlFor y actualizados sobre el
-              progreso y el estado de las responsabilidades compartidas.{" "}
+              Lleva un registro de los gastos compartidos, como el alquiler, las
+              facturas o las compras conjuntas, y divide automáticamente los
+              costos entre los miembros del hogar. Olvídate de cálculos
+              complicados y malentendidos financieros.{" "}
             </Body>
           </div>
         </PrimerContenedor>
@@ -111,7 +118,7 @@ export function Main() {
               }}
             ></hr>
             <Body $align="start">
-              Descubre la htmlFor más inteligente y eficiente de asignar y
+              Descubre la forma más inteligente y eficiente de asignar y
               gestionar las tareas del hogar. Nuestra aplicación te permite
               delegar responsabilidades de manera rápida y sencilla, asegurando
               que cada miembro del hogar esté involucrado y comprometido con la
@@ -192,8 +199,9 @@ export function Main() {
           un mes, accediendo a todas las funciones!
         </SubTitle>
         <h4>
-          Después, podés elegir pagar la versión premium o continuar con el plan
-          gratuito
+          Después, podés elegir pagar la versión{" "}
+          <span style={{ color: "var(--main-orange)" }}>premium</span> o
+          continuar con el plan gratuito
         </h4>
         <div
           style={{
@@ -304,7 +312,7 @@ export function Main() {
           </span>
         </SubTitle>
         {closeForm ? (
-          <FormDiv>
+          <FormDiv onSubmit={submitForm}>
             <div
               style={{
                 backgroundColor: "#26302E",
@@ -323,7 +331,6 @@ export function Main() {
                 onClick={handleCloseForm}
               ></Close>
               <form
-                action=""
                 style={{
                   display: "flex",
                   flexDirection: "column",
@@ -331,6 +338,7 @@ export function Main() {
                   color: "#fff",
                   padding: "1.5rem 3rem",
                 }}
+                onSubmit={submitForm}
               >
                 <div>
                   <Label htmlFor="name">Tu nombre</Label>

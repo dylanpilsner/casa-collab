@@ -48,8 +48,6 @@ export const HeroTitle = styled(Title)`
   max-width: 500px;
 
   @media (min-width: 1020px) {
-    /* max-width: 677px; */
-    /* font-size: 64px; */
   }
 `;
 
@@ -61,4 +59,18 @@ export const HeroSubtitle = styled(SubTitle)`
   @media (min-width: 1020px) {
     max-width: 600px;
   }
+`;
+
+export const FooterNav = styled.a`
+  color: #2b3377;
+  font-family: "Poppins";
+  font-size: 18px;
+  font-weight: 600;
+`;
+
+export const Rights = styled.p`
+  color: #5c5e87;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 16px;
 `;

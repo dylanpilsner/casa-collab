@@ -6,7 +6,7 @@ export function DesktopNavMenu() {
     <StyledDesktopNavMenu gap="60px">
       <NavItem href="#features">Features</NavItem>
       <NavItem href="#pricing">Pricing</NavItem>
-      <NavItem>Newsletter</NavItem>
+      <NavItem href="#social-medias">Social Medias</NavItem>
     </StyledDesktopNavMenu>
   );
 }
