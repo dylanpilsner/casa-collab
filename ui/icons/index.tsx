@@ -6,7 +6,7 @@ import { Github, Linkedin } from "./styled";
 type SocialMedia = {
   text: string;
   type: "linkedin" | "github";
-  url?: string;
+  url: string;
 };
 
 export function SocialMedia({ text, type, url }: SocialMedia) {

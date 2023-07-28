@@ -5,7 +5,6 @@ import {
   SocialMediaContainer,
   StyledFooter,
 } from "./styled";
-import { Github, Linkedin } from "@/ui/icons/styled";
 import { Rights, FooterNav } from "@/ui/typography";
 import { Separator } from "@/ui/shapes/styled";
 import { Logo } from "@/ui/logo";
@@ -25,8 +24,8 @@ export function Footer() {
           type="github"
           url="https://github.com/dylanpilsner"
         />
-        <SocialMedia text="Bruno" type="linkedin" />
-        <SocialMedia text="Bruno" type="github" />
+        <SocialMedia text="Bruno" type="linkedin" url="" />
+        <SocialMedia text="Bruno" type="github" url="" />
       </SocialMediaContainer>
       <ResponsiveContainer>
         <FooterNavContainer gap="30px">
