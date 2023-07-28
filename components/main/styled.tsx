@@ -49,6 +49,18 @@ export const PrimerContenedor = styled.div`
       grid-template-rows: repeat(3,1fr);
   }
 `
+export const FormDiv =styled.div`
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   z-index: 10;
+   backdrop-filter: blur(2px);
+`
 export const Button = styled.button`
    width:200px;
    height:50px;
@@ -64,7 +76,8 @@ export const Input =styled.input`
    height: 2rem;
    border: none;
    border-bottom: 1px solid #000;
-
+   text-indent: 10px;
+   border-radius: 10px;
 `
 export const Label =styled.label`
   display: block;

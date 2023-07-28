@@ -7,18 +7,26 @@ import Finance from '@/ui/icons/finance.svg'
 import Progress from '@/ui/icons/progress-tracking.svg'
 import Check from '@/ui/icons/check.svg'
 import NotCheck from '@/ui/icons/notCheck.svg'
-import {Article,PrimerContenedor,MainContainer,ContainerPrice,CheckDiv,Button,Input,Label} from './styled'
+import Send from '@/ui/icons/send.svg'
+import {Article,PrimerContenedor,MainContainer,ContainerPrice,CheckDiv,Button,Input,Label,FormDiv} from './styled'
 import { Buy } from '../buy'
 import { useState } from 'react'
-
+import Close from '@/ui/icons/close.svg'
 export function Main(){
    const [winOpen,setWinOpen] = useState(false) 
+   const [closeForm,setCloseForm] = useState(false) 
+
    const handleClick = (e:any)=>{
       e.preventDefault()
       setWinOpen(true)
    }
    const handleClose= (e:any)=>{
+      e.preventDefault()
       setWinOpen(false)
+   }
+   const handleCloseForm= (e:any)=>{
+      e.preventDefault()
+      setCloseForm(false)
    }
 
    return (
@@ -88,7 +96,7 @@ export function Main(){
                   <h2 >Free</h2>
                   <Body>Accéde al plan gratuito y comenza el cambio</Body>
                   <p style={{color:"#FF9052",fontSize:"3rem",fontWeight:"bold",margin:0}}>U$D 0</p>
-                  <Body>Per Month</Body>
+                  <Body> <span style={{color:"var(--main-orange)"}}>Per Month</span></Body>
                   <Button onClick={handleClick}>Comprar</Button>
                   <div style={{marginTop:"3rem",textAlign:"start"}}>
                      <CheckDiv><Check/><Body>Asignación de tareas y seguimiento del progreso</Body></CheckDiv>
@@ -102,12 +110,12 @@ export function Main(){
                   <h2>Premium</h2>
                   <Body>Probá todas las funcionalidades gratis por 30 días</Body>
                   <p style={{color:"#FF9052",fontSize:"3rem",fontWeight:"bold",margin:0}}>U$D 1</p>
-                  <Body>Per Month</Body>
+                  <Body> <span style={{color:"var(--main-orange)"}}>Per Month</span></Body>
                   <Button onClick={handleClick}>Comprar</Button>
                   <div style={{marginTop:"3rem",textAlign:"start"}}>
                      <CheckDiv><Check/><Body>Asignación de tareas y seguimiento del progreso</Body></CheckDiv>
                      <CheckDiv><Check/><Body>Recordatorios y notificaciones automáticas.</Body></CheckDiv>
-                     <CheckDiv><Check/><Body>Bodyrdatorios y notificaciones automáticas.</Body></CheckDiv>
+                     <CheckDiv><Check/><Body>Recordatorios y notificaciones automáticas.</Body></CheckDiv>
                      <CheckDiv><Check/><Body>Registro de gastos compartidos</Body></CheckDiv>
                      <CheckDiv><Check/><Body>Cálculo automático de contribuciones</Body></CheckDiv>
                   </div>
@@ -115,29 +123,32 @@ export function Main(){
             </div>
          </Article>
 
-        <div style={{backgroundColor: "#FAFAFF",display:"flex",justifyContent:"space-evenly",padding:"1rem",flexWrap:"wrap"}}>
-             <SubTitle>Contáctame</SubTitle>
-            <div >
-               <form action="" style={{display:"flex",flexDirection:"column",gap:"1rem"}}>
-                  <div>
-                     <Label htmlFor="name">Tu nombre</Label>
-                     <Input type="text" name="name" id="name" />
-                  </div>
-                  <div>
-                     <Label htmlFor="email">Tu email</Label>
-                     <Input type="email" name="email" id="email" />
-                  </div>
-                  <div>
-                     <Label htmlFor="descripcion">Descripcion</Label>
-                     <textarea name="descripcion" id="descripcion" cols={30} rows={10} style={{border:"1px solid #000"}}></textarea>
-                  </div>
-                  <div style={{display:"inherit",justifyContent:"center"}}>  
-                     <Button>Enviar</Button>
-                  </div>
-               </form>       
-            </div>
+        <div style={{backgroundColor: "#FAFAFF"}}>
+             <SubTitle> Podes Contáctanos apretando <span style={{color:"var(--main-orange)", cursor:"pointer"}} onClick={(e:any)=>{e.preventDefault();setCloseForm(true)}}> Aqui </span></SubTitle>
+            {closeForm ? <FormDiv>
+               <div style={{backgroundColor:"#26302E",borderRadius:"20px",display:"flex",flexDirection:"column",alignItems:"end"}}>
+                  <Close style={{marginTop:"1rem",marginRight:"1rem", cursor:"pointer"}} onClick={handleCloseForm}></Close>
+                  <form action="" style={{display:"flex",flexDirection:"column",gap:"1rem",color:"#fff",padding:"1.5rem 3rem",}}>
+                     <div>
+                        <Label htmlFor="name">Tu nombre</Label>
+                        <Input type="text" name="name" id="name" placeholder='Dylan Bruno'required/>
+                     </div>
+                     <div>
+                        <Label htmlFor="email">Tu email</Label>
+                        <Input type="email" name="email" id="email" placeholder='ejemplo@hotmail.com' required/>
+                     </div>
+                     <div>
+                        <Label htmlFor="descripcion">Mensaje</Label>
+                        <textarea name="descripcion" id="descripcion" cols={30} rows={10} style={{border:"1px solid #000",borderRadius:"10px"}} required></textarea>
+                     </div>
+                     <div style={{display:"inherit",justifyContent:"center"}}>  
+                        <Button>Enviar <Send/></Button>
+                     </div>
+                  </form> 
+               </div>  
+            </FormDiv>:null}
         </div>
-         
       </MainContainer>
    )
 } 
+
