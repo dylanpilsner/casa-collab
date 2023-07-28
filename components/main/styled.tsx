@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
-  padding: 0 5%;
   gap: 2rem;
   font-family: var(--main-font);
   @media (max-width: 1020px) {

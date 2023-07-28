@@ -22,6 +22,7 @@ import {
 import { Buy } from "../buy";
 import { useState } from "react";
 import Close from "@/ui/icons/close.svg";
+import { Hero } from "../hero";
 export function Main() {
   const [winOpen, setWinOpen] = useState(false);
   const [closeForm, setCloseForm] = useState(false);
@@ -41,6 +42,7 @@ export function Main() {
 
   return (
     <MainContainer>
+      <Hero />
       <Article>
         <SubTitle>
           Qué podés <span style={{ color: "var(--main-orange)" }}> hacer?</span>
