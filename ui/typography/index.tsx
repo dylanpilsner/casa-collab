@@ -1,9 +1,17 @@
 import styled from "styled-components";
 
-export const Titulo = styled.h1`
+export const Title = styled.h1`
   color: ${(props: any) => props.bg};
-  font-size: 2.5rem;
-  text-align: center;
+  font-size: 48px;
+  /* text-align: center; */
+  font-weight: 800;
+  margin: 0;
+  max-width: 500px;
+
+  @media (min-width: 1020px) {
+    max-width: 677px;
+    font-size: 64px;
+  }
 `;
 export const SubTitle = styled.h2`
   font-size: 1.5rem;
@@ -15,7 +23,7 @@ export const Body = styled.p<any>`
   font-size: 1rem;
   text-align: ${((props: any) => props.align) || "center"};
 
-  @media(max-width:1020px){
+  @media (max-width: 1020px) {
     text-align: center !important;
   }
 `;

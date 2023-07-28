@@ -2,7 +2,7 @@ import { RowBox } from "@/ui/box/styled";
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  height: 140px;
+  height: 100px;
   width: 100%;
   position: sticky;
   top: 0;
