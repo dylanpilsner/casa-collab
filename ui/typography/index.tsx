@@ -23,9 +23,13 @@ export const Body = styled.p<any>`
   font-size: 1rem;
   text-align: ${((props: any) => props.align) || "center"};
 
+<<<<<<< HEAD
   @media (max-width: 1020px) {
     text-align: center !important;
   }
+=======
+
+>>>>>>> a3733dad9689b8da80eaa894d2feda0d8f09c2a5
 `;
 
 export const LogoText = styled.span`

@@ -40,7 +40,7 @@ export const PrimerContenedor = styled.div`
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(3, 1fr);
-  align-items: center;
+  align-items: start;
   text-align: center;
   margin-top: 4rem;
   @media (max-width: 1020px) {
