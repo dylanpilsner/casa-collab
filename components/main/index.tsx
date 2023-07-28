@@ -66,7 +66,7 @@ export function Main() {
   return (
     <MainContainer>
       <Hero />
-      <Slide>
+      <Slide triggerOnce>
         <Article>
         <SubTitle>
           Qué podés <span style={{ color: "var(--main-orange)" }}> hacer?</span>
@@ -116,7 +116,7 @@ export function Main() {
         <span style={{ color: "var(--main-orange)" }}> destacados</span>
       </SubTitle>
 
-      <Slide>
+      <Slide  triggerOnce>
         <Article>
         <div 
           style={{
@@ -150,7 +150,7 @@ export function Main() {
         </Article>
       </Slide>
 
-      <Slide>
+      <Slide triggerOnce>
         <Article >
         <div
           style={{
@@ -183,7 +183,7 @@ export function Main() {
         </Article>
       </Slide>
 
-      <Slide>
+      <Slide triggerOnce>
         <Article >
         <div
           style={{
@@ -215,7 +215,7 @@ export function Main() {
         </Article>
       </Slide>
 
-      <Slide>
+      <Slide triggerOnce>
         <Article id="pricing" >
         {winOpen ? <Buy closes={handleClose}></Buy> : null}
         <SubTitle>
