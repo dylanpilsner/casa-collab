@@ -36,6 +36,21 @@ export const NavItem = styled.a`
 
   @media (min-width: 869px) {
     font-size: 18px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--almost-black);
+      transition: 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
   }
 `;
 
