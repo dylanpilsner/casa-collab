@@ -3,12 +3,8 @@ import { LogoText } from "../typography";
 import { ImgContainer, LogoBox } from "./styled";
 
 export function Logo() {
-  function test() {
-    console.log("test");
-  }
-
   return (
-    <LogoBox onClick={test}>
+    <LogoBox>
       <ImgContainer>
         <img
           src="/logotipo.png"
@@ -16,7 +12,9 @@ export function Logo() {
           alt="logotipo"
         />
       </ImgContainer>
-      <LogoText>HomeWard</LogoText>
+      <a href="#hero">
+        <LogoText>HomeWard</LogoText>
+      </a>
     </LogoBox>
   );
 }

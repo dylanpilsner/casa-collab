@@ -15,6 +15,7 @@ export function NavMenu({ status }: NavMenu) {
         <NavItem>Features</NavItem>
         <NavItem>Pricing</NavItem>
         <NavItem>Newsletter</NavItem>
+        <NavItem>Contacto</NavItem>
       </ColumnBox>
     </StyledNavMenu>
   );

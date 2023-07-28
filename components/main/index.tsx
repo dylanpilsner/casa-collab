@@ -86,7 +86,7 @@ export function Main() {
         </PrimerContenedor>
       </Article>
 
-      <SubTitle>
+      <SubTitle id="features">
         Beneficios{" "}
         <span style={{ color: "var(--main-orange)" }}> destacados</span>
       </SubTitle>
@@ -184,7 +184,7 @@ export function Main() {
         </div>
       </Article>
 
-      <Article>
+      <Article id="pricing">
         {winOpen ? <Buy closes={handleClose}></Buy> : null}
         <SubTitle>
           Empezá tu{" "}
@@ -289,9 +289,9 @@ export function Main() {
       </Article>
 
       <div style={{ backgroundColor: "#FAFAFF" }}>
-        <SubTitle>
+        <SubTitle id="contact">
           {" "}
-          Podes Contáctanos apretando{" "}
+          Podés contactarnos apretando{" "}
           <span
             style={{ color: "var(--main-orange)", cursor: "pointer" }}
             onClick={(e: any) => {
@@ -300,7 +300,7 @@ export function Main() {
             }}
           >
             {" "}
-            Aqui{" "}
+            Aquí{" "}
           </span>
         </SubTitle>
         {closeForm ? (
@@ -359,7 +359,11 @@ export function Main() {
                     id="descripcion"
                     cols={30}
                     rows={10}
-                    style={{ border: "1px solid #000", borderRadius: "10px" }}
+                    style={{
+                      border: "1px solid #000",
+                      borderRadius: "10px",
+                      padding: "10px 10px",
+                    }}
                     required
                   ></textarea>
                 </div>

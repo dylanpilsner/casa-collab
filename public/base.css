@@ -1,5 +1,5 @@
 :root {
-  --main-orange: #f5ac52;
+  --main-orange: #f5ab51;
   --orange-subtone: #dd9b4a;
   --secondary-orange: #ff9052;
   --cooper: #c36c3b;
@@ -9,6 +9,7 @@
   --almost-black: #23272a;
   --grey-500: #fafaff;
   --main-font: "Nunito Sans";
+  scroll-behavior: smooth;
 }
 
 * {

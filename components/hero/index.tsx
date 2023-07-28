@@ -1,14 +1,24 @@
-import { Line, HeroTriangle, Click } from "@/ui/shapes/styled";
+import {
+  Line,
+  HeroTriangle,
+  Click,
+  Polygon,
+  Dot,
+  Square,
+} from "@/ui/shapes/styled";
 import { Content, HeroContainer, HeroImg } from "./styled";
-import { HeroSubtitle, HeroTitle, SubTitle } from "@/ui/typography";
+import { HeroSubtitle, HeroTitle } from "@/ui/typography";
 import { CallButton } from "@/ui/buttons";
 import { ColumnBox } from "@/ui/box/styled";
 
 export function Hero() {
   return (
-    <HeroContainer>
+    <HeroContainer id="hero">
       <HeroTriangle src="/hero-triangle.png" />
-      {/* <Click /> */}
+      <Click />
+      <Polygon />
+      <Dot />
+      <Square />
       <Content>
         <ColumnBox style={{ alignItems: "flex-start" }}>
           <HeroTitle>Descubrí una nueva forma de vivir</HeroTitle>

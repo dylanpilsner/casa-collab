@@ -4,8 +4,8 @@ import { StyledDesktopNavMenu } from "./styled";
 export function DesktopNavMenu() {
   return (
     <StyledDesktopNavMenu gap="60px">
-      <NavItem>Features</NavItem>
-      <NavItem>Pricing</NavItem>
+      <NavItem href="#features">Features</NavItem>
+      <NavItem href="#pricing">Pricing</NavItem>
       <NavItem>Newsletter</NavItem>
     </StyledDesktopNavMenu>
   );
