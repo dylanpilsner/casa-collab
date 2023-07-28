@@ -20,14 +20,28 @@ import {
   FormDiv,
 } from "./styled";
 import { Buy } from "../buy";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import React from 'react';
 import Close from "@/ui/icons/close.svg";
 import { Hero } from "../hero";
 import { sendForm } from "@/lib/api";
+import {  Slide } from "react-awesome-reveal";
+import { Loader } from "../loader";
 
 export function Main() {
   const [winOpen, setWinOpen] = useState(false);
   const [closeForm, setCloseForm] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(()=>{
+    if(loading){
+      setTimeout(()=>{
+        setLoading(false)
+        alert("Gracias por su compra")
+      }
+      ,2000)
+    }
+  },[loading])
 
   const handleClick = (e: any) => {
     e.preventDefault();
@@ -41,8 +55,10 @@ export function Main() {
     setCloseForm(false);
   };
 
-  async function submitForm(e: any) {
+  const submitForm =async(e: any)=> {
     e.preventDefault();
+    setLoading(true)
+    setCloseForm(false)
     const target = e.target;
     await sendForm(target);
   }
@@ -50,10 +66,12 @@ export function Main() {
   return (
     <MainContainer>
       <Hero />
-      <Article>
+      <Slide>
+        <Article>
         <SubTitle>
           Qué podés <span style={{ color: "var(--main-orange)" }}> hacer?</span>
         </SubTitle>
+
         <PrimerContenedor>
           <div>
             <Market />
@@ -91,15 +109,16 @@ export function Main() {
             </Body>
           </div>
         </PrimerContenedor>
-      </Article>
-
+        </Article>
+      </Slide>
       <SubTitle id="features">
         Beneficios{" "}
         <span style={{ color: "var(--main-orange)" }}> destacados</span>
       </SubTitle>
 
-      <Article>
-        <div
+      <Slide>
+        <Article>
+        <div 
           style={{
             display: "flex",
             justifyContent: "space-evenly",
@@ -128,9 +147,11 @@ export function Main() {
             </Body>
           </div>
         </div>
-      </Article>
+        </Article>
+      </Slide>
 
-      <Article>
+      <Slide>
+        <Article >
         <div
           style={{
             display: "flex",
@@ -159,9 +180,11 @@ export function Main() {
           </div>
           <Progress />
         </div>
-      </Article>
+        </Article>
+      </Slide>
 
-      <Article>
+      <Slide>
+        <Article >
         <div
           style={{
             display: "flex",
@@ -189,9 +212,11 @@ export function Main() {
             </Body>
           </div>
         </div>
-      </Article>
+        </Article>
+      </Slide>
 
-      <Article id="pricing">
+      <Slide>
+        <Article id="pricing" >
         {winOpen ? <Buy closes={handleClose}></Buy> : null}
         <SubTitle>
           Empezá tu{" "}
@@ -294,9 +319,10 @@ export function Main() {
             </div>
           </ContainerPrice>
         </div>
-      </Article>
-
-      <div style={{ backgroundColor: "#FAFAFF" }}>
+        </Article>
+      </Slide>
+      {loading?<Loader></Loader>:null}
+      <div style={{ backgroundColor: "#FAFAFF" }} >
         <SubTitle id="contact">
           {" "}
           Podés contactarnos apretando{" "}
