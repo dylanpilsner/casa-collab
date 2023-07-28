@@ -1,10 +1,16 @@
-import { RowBox } from "../box/styled";
+import { useRouter } from "next/router";
 import { LogoText } from "../typography";
 import { ImgContainer, LogoBox } from "./styled";
 
 export function Logo() {
+  const router = useRouter();
+
+  function goTo(url: string) {
+    router.push(url);
+  }
+
   return (
-    <LogoBox>
+    <LogoBox onClick={() => goTo("#hero")}>
       <ImgContainer>
         <img
           src="/logotipo.png"
@@ -12,9 +18,7 @@ export function Logo() {
           alt="logotipo"
         />
       </ImgContainer>
-      <a href="#hero">
-        <LogoText>HomeWard</LogoText>
-      </a>
+      <LogoText>HomeWard</LogoText>
     </LogoBox>
   );
 }

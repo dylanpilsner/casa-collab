@@ -6,7 +6,7 @@ import {
   Dot,
   Square,
 } from "@/ui/shapes/styled";
-import { Content, HeroContainer, HeroImg } from "./styled";
+import { BottomMask, Content, HeroContainer, HeroImg, TopMask } from "./styled";
 import { HeroSubtitle, HeroTitle } from "@/ui/typography";
 import { CallButton } from "@/ui/buttons";
 import { ColumnBox } from "@/ui/box/styled";
@@ -22,6 +22,8 @@ export function Hero() {
   return (
     <HeroContainer id="hero">
       <HeroTriangle src="/hero-triangle.png" />
+      <TopMask src="/top-mask.png" />
+      <BottomMask src="/bottom-mask.png" />
       <Click />
       <Polygon />
       <Dot />

@@ -19,7 +19,7 @@ export function SocialMedia({ text, type, url }: SocialMedia) {
   return (
     <RowBox
       gap="3px"
-      style={{ justifyContent: "flex-start" }}
+      style={{ justifyContent: "flex-start", cursor: "pointer" }}
       onClick={handleClick}
     >
       {socialMedia}
