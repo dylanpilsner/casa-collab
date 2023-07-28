@@ -1,4 +1,4 @@
-import { StyledMainButton } from "./styled";
+import { StyledCallButton, StyledMainButton } from "./styled";
 
 type Button = {
   text: string;
@@ -7,4 +7,7 @@ type Button = {
 
 export function MainButton({ text, callback }: Button) {
   return <StyledMainButton onClick={callback}>{text}</StyledMainButton>;
+}
+export function CallButton({ text, callback }: Button) {
+  return <StyledCallButton onClick={callback}>{text}</StyledCallButton>;
 }

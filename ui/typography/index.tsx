@@ -2,16 +2,8 @@ import styled from "styled-components";
 
 export const Title = styled.h1`
   color: ${(props: any) => props.bg};
-  font-size: 48px;
-  /* text-align: center; */
-  font-weight: 800;
-  margin: 0;
-  max-width: 500px;
-
-  @media (min-width: 1020px) {
-    max-width: 677px;
-    font-size: 64px;
-  }
+  font-size: 2.5rem;
+  text-align: center;
 `;
 export const SubTitle = styled.h2`
   font-size: 1.5rem;
@@ -23,13 +15,9 @@ export const Body = styled.p<any>`
   font-size: 1rem;
   text-align: ${((props: any) => props.align) || "center"};
 
-<<<<<<< HEAD
   @media (max-width: 1020px) {
     text-align: center !important;
   }
-=======
-
->>>>>>> a3733dad9689b8da80eaa894d2feda0d8f09c2a5
 `;
 
 export const LogoText = styled.span`
@@ -48,5 +36,29 @@ export const NavItem = styled.a`
 
   @media (min-width: 869px) {
     font-size: 18px;
+  }
+`;
+
+export const HeroTitle = styled(Title)`
+  color: ${(props: any) => props.bg};
+  font-size: 48px;
+  text-align: left;
+  font-weight: 800;
+  margin: 0;
+  max-width: 500px;
+
+  @media (min-width: 1020px) {
+    /* max-width: 677px; */
+    /* font-size: 64px; */
+  }
+`;
+
+export const HeroSubtitle = styled(SubTitle)`
+  text-align: left;
+  font-weight: 400;
+  max-width: 371px;
+
+  @media (min-width: 1020px) {
+    max-width: 600px;
   }
 `;

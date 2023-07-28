@@ -21,3 +21,15 @@ export const StyledMainButton = styled.button`
     display: initial;
   }
 `;
+
+export const StyledCallButton = styled(StyledMainButton)`
+  display: initial;
+  background-color: var(--almost-black);
+  color: #fff;
+  height: 62px;
+  width: 250px;
+
+  &:hover {
+    background-color: #393d3f;
+  }
+`;
