@@ -7,6 +7,7 @@ import Finance from "@/ui/icons/finance.svg";
 import Progress from "@/ui/icons/progress-tracking.svg";
 import Check from "@/ui/icons/check.svg";
 import NotCheck from "@/ui/icons/notCheck.svg";
+import Send from "@/ui/icons/send.svg";
 import {
   Article,
   PrimerContenedor,
@@ -16,24 +17,30 @@ import {
   Button,
   Input,
   Label,
+  FormDiv,
 } from "./styled";
 import { Buy } from "../buy";
 import { useState } from "react";
-import { Hero } from "../hero";
-
+import Close from "@/ui/icons/close.svg";
 export function Main() {
   const [winOpen, setWinOpen] = useState(false);
+  const [closeForm, setCloseForm] = useState(false);
+
   const handleClick = (e: any) => {
     e.preventDefault();
     setWinOpen(true);
   };
   const handleClose = (e: any) => {
+    e.preventDefault();
     setWinOpen(false);
+  };
+  const handleCloseForm = (e: any) => {
+    e.preventDefault();
+    setCloseForm(false);
   };
 
   return (
     <MainContainer>
-      <Hero></Hero>
       <Article>
         <SubTitle>
           Qué podés <span style={{ color: "var(--main-orange)" }}> hacer?</span>
@@ -207,7 +214,10 @@ export function Main() {
             >
               U$D 0
             </p>
-            <Body>Per Month</Body>
+            <Body>
+              {" "}
+              <span style={{ color: "var(--main-orange)" }}>Per Month</span>
+            </Body>
             <Button onClick={handleClick}>Comprar</Button>
             <div style={{ marginTop: "3rem", textAlign: "start" }}>
               <CheckDiv>
@@ -245,7 +255,10 @@ export function Main() {
             >
               U$D 1
             </p>
-            <Body>Per Month</Body>
+            <Body>
+              {" "}
+              <span style={{ color: "var(--main-orange)" }}>Per Month</span>
+            </Body>
             <Button onClick={handleClick}>Comprar</Button>
             <div style={{ marginTop: "3rem", textAlign: "start" }}>
               <CheckDiv>
@@ -258,7 +271,7 @@ export function Main() {
               </CheckDiv>
               <CheckDiv>
                 <Check />
-                <Body>Bodyrdatorios y notificaciones automáticas.</Body>
+                <Body>Recordatorios y notificaciones automáticas.</Body>
               </CheckDiv>
               <CheckDiv>
                 <Check />
@@ -273,44 +286,90 @@ export function Main() {
         </div>
       </Article>
 
-      <div
-        style={{
-          backgroundColor: "#FAFAFF",
-          display: "flex",
-          justifyContent: "space-evenly",
-          padding: "1rem",
-          flexWrap: "wrap",
-        }}
-      >
-        <SubTitle>Contáctame</SubTitle>
-        <div>
-          <form
-            action=""
-            style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+      <div style={{ backgroundColor: "#FAFAFF" }}>
+        <SubTitle>
+          {" "}
+          Podes Contáctanos apretando{" "}
+          <span
+            style={{ color: "var(--main-orange)", cursor: "pointer" }}
+            onClick={(e: any) => {
+              e.preventDefault();
+              setCloseForm(true);
+            }}
           >
-            <div>
-              <Label htmlFor="name">Tu nombre</Label>
-              <Input type="text" name="name" id="name" />
+            {" "}
+            Aqui{" "}
+          </span>
+        </SubTitle>
+        {closeForm ? (
+          <FormDiv>
+            <div
+              style={{
+                backgroundColor: "#26302E",
+                borderRadius: "20px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "end",
+              }}
+            >
+              <Close
+                style={{
+                  marginTop: "1rem",
+                  marginRight: "1rem",
+                  cursor: "pointer",
+                }}
+                onClick={handleCloseForm}
+              ></Close>
+              <form
+                action=""
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "1rem",
+                  color: "#fff",
+                  padding: "1.5rem 3rem",
+                }}
+              >
+                <div>
+                  <Label htmlFor="name">Tu nombre</Label>
+                  <Input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Dylan Bruno"
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="email">Tu email</Label>
+                  <Input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="ejemplo@hotmail.com"
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="descripcion">Mensaje</Label>
+                  <textarea
+                    name="descripcion"
+                    id="descripcion"
+                    cols={30}
+                    rows={10}
+                    style={{ border: "1px solid #000", borderRadius: "10px" }}
+                    required
+                  ></textarea>
+                </div>
+                <div style={{ display: "inherit", justifyContent: "center" }}>
+                  <Button>
+                    Enviar <Send />
+                  </Button>
+                </div>
+              </form>
             </div>
-            <div>
-              <Label htmlFor="email">Tu email</Label>
-              <Input type="email" name="email" id="email" />
-            </div>
-            <div>
-              <Label htmlFor="descripcion">Descripcion</Label>
-              <textarea
-                name="descripcion"
-                id="descripcion"
-                cols={30}
-                rows={10}
-                style={{ border: "1px solid #000" }}
-              ></textarea>
-            </div>
-            <div style={{ display: "inherit", justifyContent: "center" }}>
-              <Button>Enviar</Button>
-            </div>
-          </form>
-        </div>
+          </FormDiv>
+        ) : null}
       </div>
     </MainContainer>
   );
