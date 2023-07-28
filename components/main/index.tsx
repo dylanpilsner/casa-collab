@@ -21,11 +21,11 @@ import {
 } from "./styled";
 import { Buy } from "../buy";
 import { useEffect, useState } from "react";
-import React from 'react';
+import React from "react";
 import Close from "@/ui/icons/close.svg";
 import { Hero } from "../hero";
 import { sendForm } from "@/lib/api";
-import {  Slide } from "react-awesome-reveal";
+import { Slide } from "react-awesome-reveal";
 import { Loader } from "../loader";
 
 export function Main() {
@@ -33,15 +33,14 @@ export function Main() {
   const [closeForm, setCloseForm] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  useEffect(()=>{
-    if(loading){
-      setTimeout(()=>{
-        setLoading(false)
-        alert("Gracias por su compra")
-      }
-      ,2000)
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+        alert("Gracias por su compra");
+      }, 2000);
     }
-  },[loading])
+  }, [loading]);
 
   const handleClick = (e: any) => {
     e.preventDefault();
@@ -55,60 +54,61 @@ export function Main() {
     setCloseForm(false);
   };
 
-  const submitForm =async(e: any)=> {
+  const submitForm = async (e: any) => {
     e.preventDefault();
-    setLoading(true)
-    setCloseForm(false)
+    setLoading(true);
+    setCloseForm(false);
     const target = e.target;
     await sendForm(target);
-  }
+  };
 
   return (
     <MainContainer>
       <Hero />
       <Slide triggerOnce>
         <Article>
-        <SubTitle>
-          Qué podés <span style={{ color: "var(--main-orange)" }}> hacer?</span>
-        </SubTitle>
+          <SubTitle>
+            Qué podés{" "}
+            <span style={{ color: "var(--main-orange)" }}> hacer?</span>
+          </SubTitle>
 
-        <PrimerContenedor>
-          <div>
-            <Market />
-            <h3 style={{ color: "#2B3377" }}>
-              Organiza y asigna tareas domésticas
-            </h3>
-            <Body>
-              Con nuestra aplicación, puedes crear una lista de tareas
-              domésticas y asignarlas de manera equitativa entre los miembros
-              del hogar.{" "}
-            </Body>
-          </div>
-          <div>
-            <Graph />
-            <h3 style={{ color: "#2B3377" }}>
-              Registra y divide los gastos compartidos
-            </h3>
-            <Body>
-              Lleva un registro de los gastos compartidos, como el alquiler, las
-              facturas o las compras conjuntas, y divide automáticamente los
-              costos entre los miembros del hogar. Olvídate de cálculos
-              complicados y malentendidos financieros.{" "}
-            </Body>
-          </div>
-          <div>
-            <Financial />
-            <h3 style={{ color: "#2B3377" }}>
-              Mantén un seguimiento en tiempo real
-            </h3>
-            <Body>
-              Lleva un registro de los gastos compartidos, como el alquiler, las
-              facturas o las compras conjuntas, y divide automáticamente los
-              costos entre los miembros del hogar. Olvídate de cálculos
-              complicados y malentendidos financieros.{" "}
-            </Body>
-          </div>
-        </PrimerContenedor>
+          <PrimerContenedor>
+            <div>
+              <Market />
+              <h3 style={{ color: "#2B3377" }}>
+                Organiza y asigna tareas domésticas
+              </h3>
+              <Body>
+                Con nuestra aplicación, puedes crear una lista de tareas
+                domésticas y asignarlas de manera equitativa entre los miembros
+                del hogar.{" "}
+              </Body>
+            </div>
+            <div>
+              <Graph />
+              <h3 style={{ color: "#2B3377" }}>
+                Registra y divide los gastos compartidos
+              </h3>
+              <Body>
+                Lleva un registro de los gastos compartidos, como el alquiler,
+                las facturas o las compras conjuntas, y divide automáticamente
+                los costos entre los miembros del hogar. Olvídate de cálculos
+                complicados y malentendidos financieros.{" "}
+              </Body>
+            </div>
+            <div>
+              <Financial />
+              <h3 style={{ color: "#2B3377" }}>
+                Mantén un seguimiento en tiempo real
+              </h3>
+              <Body>
+                Lleva un registro de los gastos compartidos, como el alquiler,
+                las facturas o las compras conjuntas, y divide automáticamente
+                los costos entre los miembros del hogar. Olvídate de cálculos
+                complicados y malentendidos financieros.{" "}
+              </Body>
+            </div>
+          </PrimerContenedor>
         </Article>
       </Slide>
       <SubTitle id="features">
@@ -116,213 +116,219 @@ export function Main() {
         <span style={{ color: "var(--main-orange)" }}> destacados</span>
       </SubTitle>
 
-      <Slide  triggerOnce>
+      <Slide triggerOnce>
         <Article>
-        <div 
-          style={{
-            display: "flex",
-            justifyContent: "space-evenly",
-            alignItems: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          <Task />
-          <div style={{ width: "420px" }}>
-            <SubTitle>Asignación de tareas</SubTitle>
-            <hr
-              style={{
-                width: "50px",
-                border: "1px solid var(--cooper)",
-                margin: 0,
-              }}
-            ></hr>
-            <Body $align="start">
-              Descubre la forma más inteligente y eficiente de asignar y
-              gestionar las tareas del hogar. Nuestra aplicación te permite
-              delegar responsabilidades de manera rápida y sencilla, asegurando
-              que cada miembro del hogar esté involucrado y comprometido con la
-              organización diaria. Simplifica la coordinación y mejora la
-              productividad en tu hogar con nuestra intuitiva función de
-              asignación de tareas.
-            </Body>
-          </div>
-        </div>
-        </Article>
-      </Slide>
-
-      <Slide triggerOnce>
-        <Article >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-evenly",
-            alignItems: "center",
-            backgroundColor: "#FAFAFF",
-            flexWrap: "wrap-reverse",
-          }}
-        >
-          <div style={{ width: "420px" }}>
-            <SubTitle>Seguimiento del progreso</SubTitle>
-            <hr
-              style={{
-                width: "50px",
-                border: "1px solid var(--cooper)",
-                margin: 0,
-              }}
-            ></hr>
-            <Body align="start">
-              Mantén un control total sobre el progreso de las tareas asignadas.
-              Nuestra interfaz intuitiva te permite ver rápidamente qué tareas
-              están completas, cuáles están en proceso y cuáles necesitan
-              atención adicional, lo que te ayuda a mantener todo en orden sin
-              esfuerzo.
-            </Body>
-          </div>
-          <Progress />
-        </div>
-        </Article>
-      </Slide>
-
-      <Slide triggerOnce>
-        <Article >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-evenly",
-            alignItems: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          <Finance />
-          <div style={{ width: "420px" }}>
-            <SubTitle>Registro de gastos compartido</SubTitle>
-            <hr
-              style={{
-                width: "50px",
-                border: "1px solid var(--cooper)",
-                margin: 0,
-              }}
-            ></hr>
-            <Body align="start">
-              Simplifica la gestión financiera en tu hogar con nuestro sistema
-              de registro de gastos compartidos. Registra fácilmente los gastos
-              y categorízalos para tener una visión clara de dónde se está
-              gastando el dinero, evitando sorpresas desagradables y promoviendo
-              una distribución equitativa de los costos.
-            </Body>
-          </div>
-        </div>
-        </Article>
-      </Slide>
-
-      <Slide triggerOnce>
-        <Article id="pricing" >
-        {winOpen ? <Buy closes={handleClose}></Buy> : null}
-        <SubTitle>
-          Empezá tu{" "}
-          <span style={{ color: "var(--main-orange)" }}> free trial </span>por
-          un mes, accediendo a todas las funciones!
-        </SubTitle>
-        <h4>
-          Después, podés elegir pagar la versión{" "}
-          <span style={{ color: "var(--main-orange)" }}>premium</span> o
-          continuar con el plan gratuito
-        </h4>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-evenly",
-            flexWrap: "wrap",
-            marginTop: "4rem",
-          }}
-        >
-          <ContainerPrice>
-            <h2>Free</h2>
-            <Body>Accéde al plan gratuito y comenza el cambio</Body>
-            <p
-              style={{
-                color: "#FF9052",
-                fontSize: "3rem",
-                fontWeight: "bold",
-                margin: 0,
-              }}
-            >
-              U$D 0
-            </p>
-            <Body>
-              {" "}
-              <span style={{ color: "var(--main-orange)" }}>Per Month</span>
-            </Body>
-            <Button onClick={handleClick}>Comprar</Button>
-            <div style={{ marginTop: "3rem", textAlign: "start" }}>
-              <CheckDiv>
-                <Check />
-                <Body>Asignación de tareas y seguimiento del progreso</Body>
-              </CheckDiv>
-              <CheckDiv>
-                <Check />
-                <Body>Recordatorios y notificaciones automáticas.</Body>
-              </CheckDiv>
-              <CheckDiv>
-                <Check />
-                <Body>Recordatorios y notificaciones automáticas.</Body>
-              </CheckDiv>
-              <CheckDiv>
-                <NotCheck />
-                <Body>Registro de gastos compartidos</Body>
-              </CheckDiv>
-              <CheckDiv>
-                <NotCheck />
-                <Body>Cálculo automático de contribuciones</Body>
-              </CheckDiv>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <Task />
+            <div style={{ width: "420px" }}>
+              <SubTitle style={{ textAlign: "left" }}>
+                Asignación de tareas
+              </SubTitle>
+              <hr
+                style={{
+                  width: "50px",
+                  border: "1px solid var(--cooper)",
+                  margin: 0,
+                }}
+              ></hr>
+              <Body align="start">
+                Descubre la forma más inteligente y eficiente de asignar y
+                gestionar las tareas del hogar. Nuestra aplicación te permite
+                delegar responsabilidades de manera rápida y sencilla,
+                asegurando que cada miembro del hogar esté involucrado y
+                comprometido con la organización diaria. Simplifica la
+                coordinación y mejora la productividad en tu hogar con nuestra
+                intuitiva función de asignación de tareas.
+              </Body>
             </div>
-          </ContainerPrice>
-          <ContainerPrice>
-            <h2>Premium</h2>
-            <Body>Probá todas las funcionalidades gratis por 30 días</Body>
-            <p
-              style={{
-                color: "#FF9052",
-                fontSize: "3rem",
-                fontWeight: "bold",
-                margin: 0,
-              }}
-            >
-              U$D 1
-            </p>
-            <Body>
-              {" "}
-              <span style={{ color: "var(--main-orange)" }}>Per Month</span>
-            </Body>
-            <Button onClick={handleClick}>Comprar</Button>
-            <div style={{ marginTop: "3rem", textAlign: "start" }}>
-              <CheckDiv>
-                <Check />
-                <Body>Asignación de tareas y seguimiento del progreso</Body>
-              </CheckDiv>
-              <CheckDiv>
-                <Check />
-                <Body>Recordatorios y notificaciones automáticas.</Body>
-              </CheckDiv>
-              <CheckDiv>
-                <Check />
-                <Body>Recordatorios y notificaciones automáticas.</Body>
-              </CheckDiv>
-              <CheckDiv>
-                <Check />
-                <Body>Registro de gastos compartidos</Body>
-              </CheckDiv>
-              <CheckDiv>
-                <Check />
-                <Body>Cálculo automático de contribuciones</Body>
-              </CheckDiv>
-            </div>
-          </ContainerPrice>
-        </div>
+          </div>
         </Article>
       </Slide>
-      {loading?<Loader></Loader>:null}
-      <div style={{ backgroundColor: "#FAFAFF" }} >
+
+      <Slide triggerOnce>
+        <Article>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              backgroundColor: "#FAFAFF",
+              flexWrap: "wrap-reverse",
+            }}
+          >
+            <div style={{ width: "420px" }}>
+              <SubTitle style={{ textAlign: "left" }}>
+                Seguimiento del progreso
+              </SubTitle>
+              <hr
+                style={{
+                  width: "50px",
+                  border: "1px solid var(--cooper)",
+                  margin: 0,
+                }}
+              ></hr>
+              <Body align="start">
+                Mantén un control total sobre el progreso de las tareas
+                asignadas. Nuestra interfaz intuitiva te permite ver rápidamente
+                qué tareas están completas, cuáles están en proceso y cuáles
+                necesitan atención adicional, lo que te ayuda a mantener todo en
+                orden sin esfuerzo.
+              </Body>
+            </div>
+            <Progress />
+          </div>
+        </Article>
+      </Slide>
+
+      <Slide triggerOnce>
+        <Article>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <Finance />
+            <div style={{ width: "420px" }}>
+              <SubTitle style={{ textAlign: "left" }}>
+                Registro de gastos compartido
+              </SubTitle>
+              <hr
+                style={{
+                  width: "50px",
+                  border: "1px solid var(--cooper)",
+                  margin: 0,
+                }}
+              ></hr>
+              <Body align="start">
+                Simplifica la gestión financiera en tu hogar con nuestro sistema
+                de registro de gastos compartidos. Registra fácilmente los
+                gastos y categorízalos para tener una visión clara de dónde se
+                está gastando el dinero, evitando sorpresas desagradables y
+                promoviendo una distribución equitativa de los costos.
+              </Body>
+            </div>
+          </div>
+        </Article>
+      </Slide>
+
+      <Slide triggerOnce>
+        <Article id="pricing">
+          {winOpen ? <Buy closes={handleClose}></Buy> : null}
+          <SubTitle>
+            Empezá tu{" "}
+            <span style={{ color: "var(--main-orange)" }}> free trial </span>por
+            un mes, accediendo a todas las funciones!
+          </SubTitle>
+          <h4>
+            Después, podés elegir pagar la versión{" "}
+            <span style={{ color: "var(--main-orange)" }}>premium</span> o
+            continuar con el plan gratuito
+          </h4>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              flexWrap: "wrap",
+              marginTop: "4rem",
+            }}
+          >
+            <ContainerPrice>
+              <h2>Free</h2>
+              <Body>Accéde al plan gratuito y comenza el cambio</Body>
+              <p
+                style={{
+                  color: "#FF9052",
+                  fontSize: "3rem",
+                  fontWeight: "bold",
+                  margin: 0,
+                }}
+              >
+                U$D 0
+              </p>
+              <Body>
+                {" "}
+                <span style={{ color: "var(--main-orange)" }}>Per Month</span>
+              </Body>
+              <Button onClick={handleClick}>Comprar</Button>
+              <div style={{ marginTop: "3rem", textAlign: "start" }}>
+                <CheckDiv>
+                  <Check />
+                  <Body>Asignación de tareas y seguimiento del progreso</Body>
+                </CheckDiv>
+                <CheckDiv>
+                  <Check />
+                  <Body>Recordatorios y notificaciones automáticas.</Body>
+                </CheckDiv>
+                <CheckDiv>
+                  <Check />
+                  <Body>Recordatorios y notificaciones automáticas.</Body>
+                </CheckDiv>
+                <CheckDiv>
+                  <NotCheck />
+                  <Body>Registro de gastos compartidos</Body>
+                </CheckDiv>
+                <CheckDiv>
+                  <NotCheck />
+                  <Body>Cálculo automático de contribuciones</Body>
+                </CheckDiv>
+              </div>
+            </ContainerPrice>
+            <ContainerPrice>
+              <h2>Premium</h2>
+              <Body>Probá todas las funcionalidades gratis por 30 días</Body>
+              <p
+                style={{
+                  color: "#FF9052",
+                  fontSize: "3rem",
+                  fontWeight: "bold",
+                  margin: 0,
+                }}
+              >
+                U$D 1
+              </p>
+              <Body>
+                {" "}
+                <span style={{ color: "var(--main-orange)" }}>Per Month</span>
+              </Body>
+              <Button onClick={handleClick}>Comprar</Button>
+              <div style={{ marginTop: "3rem", textAlign: "start" }}>
+                <CheckDiv>
+                  <Check />
+                  <Body>Asignación de tareas y seguimiento del progreso</Body>
+                </CheckDiv>
+                <CheckDiv>
+                  <Check />
+                  <Body>Recordatorios y notificaciones automáticas.</Body>
+                </CheckDiv>
+                <CheckDiv>
+                  <Check />
+                  <Body>Recordatorios y notificaciones automáticas.</Body>
+                </CheckDiv>
+                <CheckDiv>
+                  <Check />
+                  <Body>Registro de gastos compartidos</Body>
+                </CheckDiv>
+                <CheckDiv>
+                  <Check />
+                  <Body>Cálculo automático de contribuciones</Body>
+                </CheckDiv>
+              </div>
+            </ContainerPrice>
+          </div>
+        </Article>
+      </Slide>
+      {loading ? <Loader></Loader> : null}
+      <div style={{ backgroundColor: "#FAFAFF" }}>
         <SubTitle id="contact">
           {" "}
           Podés contactarnos apretando{" "}
