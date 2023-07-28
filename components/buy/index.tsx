@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 const Div = styled.div<any>`
     position: fixed;
-    top: 10%;
+    top: 20%;
     color: white;
     right: 10%;
     left: 10%;

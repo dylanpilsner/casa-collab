@@ -23,6 +23,7 @@ import { Buy } from "../buy";
 import { useState } from "react";
 import Close from "@/ui/icons/close.svg";
 import { Hero } from "../hero";
+
 export function Main() {
   const [winOpen, setWinOpen] = useState(false);
   const [closeForm, setCloseForm] = useState(false);
@@ -32,7 +33,6 @@ export function Main() {
     setWinOpen(true);
   };
   const handleClose = (e: any) => {
-    e.preventDefault();
     setWinOpen(false);
   };
   const handleCloseForm = (e: any) => {
