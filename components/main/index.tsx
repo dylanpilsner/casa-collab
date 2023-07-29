@@ -37,7 +37,7 @@ export function Main() {
     if (loading) {
       setTimeout(() => {
         setLoading(false);
-        alert("Gracias por su compra");
+        alert("Su mensaje se envió correctamente");
       }, 2000);
     }
   }, [loading]);
