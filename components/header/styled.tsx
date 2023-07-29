@@ -19,7 +19,6 @@ export const HeaderContainer = styled(RowBox)`
   z-index: 5;
   transition: 0.5s ease;
 
-  /* background-color: rgb(245, 171, 81); */
   @media (min-width: 869px) {
     padding: 0 30px;
   }

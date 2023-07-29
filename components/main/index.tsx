@@ -26,7 +26,7 @@ import Close from "@/ui/icons/close.svg";
 import { Hero } from "../hero";
 import { sendForm } from "@/lib/api";
 import { Slide } from "react-awesome-reveal";
-import { Loader } from "../loader";
+import { Loader } from "../../ui/loader";
 
 export function Main() {
   const [winOpen, setWinOpen] = useState(false);
@@ -45,11 +45,11 @@ export function Main() {
   const handleClick = (e: any) => {
     e.preventDefault();
     setWinOpen(true);
-    (document as any).body.style.overflow = 'hidden'  
+    (document as any).body.style.overflow = "hidden";
   };
   const handleClose = (e: any) => {
     setWinOpen(false);
-    (document as any).body.style.overflow = 'auto'  
+    (document as any).body.style.overflow = "auto";
   };
   const handleCloseForm = (e: any) => {
     e.preventDefault();

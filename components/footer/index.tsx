@@ -1,4 +1,4 @@
-import { ColumnBox, RowBox } from "@/ui/box/styled";
+import { ColumnBox } from "@/ui/box/styled";
 import {
   FooterNavContainer,
   ResponsiveContainer,
@@ -24,8 +24,16 @@ export function Footer() {
           type="github"
           url="https://github.com/dylanpilsner"
         />
-        <SocialMedia text="Bruno" type="linkedin" url="https://www.linkedin.com/in/brunoken18/" />
-        <SocialMedia text="Bruno" type="github" url="https://github.com/brunoken22" />
+        <SocialMedia
+          text="Bruno"
+          type="linkedin"
+          url="https://www.linkedin.com/in/brunoken18/"
+        />
+        <SocialMedia
+          text="Bruno"
+          type="github"
+          url="https://github.com/brunoken22"
+        />
       </SocialMediaContainer>
       <ResponsiveContainer>
         <FooterNavContainer gap="30px">
