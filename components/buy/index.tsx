@@ -36,10 +36,10 @@ export function Buy(props: any) {
         <Close />
       </span>
       <div style={{ width: "100%" }}>
-        <h3>
+        <h4>
           Contactanos para obtener más información sobre nuestro servicio y cómo
           adquirirlo!
-        </h3>
+        </h4>
       </div>
     </Div>
   );
