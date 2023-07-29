@@ -45,9 +45,11 @@ export function Main() {
   const handleClick = (e: any) => {
     e.preventDefault();
     setWinOpen(true);
+    (document as any).body.style.overflow = 'hidden'  
   };
   const handleClose = (e: any) => {
     setWinOpen(false);
+    (document as any).body.style.overflow = 'auto'  
   };
   const handleCloseForm = (e: any) => {
     e.preventDefault();

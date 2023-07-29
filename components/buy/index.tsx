@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Close from "@/ui/icons/close.svg";
 
 const Div = styled.div<any>`
-  position: fixed;
+  position: sticky;
   top: 20%;
   color: white;
   right: 10%;
@@ -30,17 +30,17 @@ export function Buy(props: any) {
   };
 
   return (
-    <Div>
-      <span onClick={handleClick} style={{ cursor: "pointer" }}>
-        {" "}
-        <Close />
-      </span>
-      <div style={{ width: "100%" }}>
-        <h4>
-          Contactanos para obtener más información sobre nuestro servicio y cómo
-          adquirirlo!
-        </h4>
-      </div>
-    </Div>
+   <Div>
+         <span onClick={handleClick} style={{ cursor: "pointer" }}>
+         {" "}
+         <Close />
+         </span>
+         <div style={{ width: "100%" }}>
+         <h4>
+            Contactanos para obtener más información sobre nuestro servicio y cómo
+            adquirirlo!
+         </h4>
+         </div>
+   </Div>
   );
 }
