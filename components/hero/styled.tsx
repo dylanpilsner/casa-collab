@@ -56,7 +56,7 @@ export const BottomMask = styled.img`
   width: 100%;
   position: absolute;
   bottom: 100px;
-  left: -75px;
+  left: -50px;
 
   @media (min-width: 1020px) {
     bottom: -50px;
