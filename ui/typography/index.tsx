@@ -1,17 +1,26 @@
 import styled from "styled-components";
 
-export const Title = styled.h1`
-  color: ${(props: any) => props.bg};
+type Typography = {
+  bg?: string;
+};
+
+export const Title = styled.h1<Typography>`
+  color: ${(props) => (props.bg ? props.bg : "black")};
   font-size: 2.5rem;
   text-align: center;
 `;
-export const SubTitle = styled.h2`
+export const SubTitle = styled(Title).attrs({ as: "h2" })`
   font-size: 1.5rem;
   text-align: center;
 `;
-export const Body = styled.p<any>`
-  color: ${((props: any) => props.$bg) || "#fff"};
-  font-weight: 300;
+
+type Body = {
+  align?: string;
+};
+
+export const Body = styled.p<Body>`
+  color: ${((props: any) => props.bg) || "#fff"};
+  font-weight: 400;
   font-size: 1rem;
   text-align: ${((props: any) => props.align) || "center"};
 

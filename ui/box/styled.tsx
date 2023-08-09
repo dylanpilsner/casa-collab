@@ -18,3 +18,13 @@ export const ColumnBox = styled.div<Box>`
 export const RowBox = styled(ColumnBox)`
   flex-direction: row;
 `;
+
+type Article = {
+  bgcolor?: string;
+};
+
+export const Article = styled.article<Article>`
+  text-align: center;
+  padding: 0 20px;
+  background-color: ${(props) => (props.bgcolor ? props.bgcolor : "#fff")};
+`;

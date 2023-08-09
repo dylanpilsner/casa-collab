@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const Div = styled.div<any>`
-  position: sticky;
-  top: 20%;
+  position: fixed;
+  top: 50%;
   color: white;
   right: 10%;
   left: 10%;
-  bottom: 10%;
+  /* bottom: 10%; */
   display: flex;
   background-color: #f5ac52;
   border-radius: 20px;
