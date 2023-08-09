@@ -5,6 +5,7 @@ import { Button, CheckDiv, ContainerPrice } from "./styled";
 import { Buy } from "../buy";
 import Check from "@/ui/icons/check.svg";
 import NotCheck from "@/ui/icons/notCheck.svg";
+import { Modal } from "../modal";
 
 export function Pricing() {
   const [winOpen, setWinOpen] = useState(false);
@@ -29,7 +30,7 @@ export function Pricing() {
           display: "flex",
           justifyContent: "space-evenly",
           flexWrap: "wrap",
-          marginTop: "4rem",
+          // marginTop: "4rem",
         }}
       >
         {/* <ContainerPrice>

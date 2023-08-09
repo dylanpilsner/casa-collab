@@ -17,6 +17,7 @@ import { Functions } from "./functions";
 import { Features } from "./features";
 import { Pricing } from "../pricing";
 import { Article } from "@/ui/box/styled";
+import { Modal } from "../modal";
 
 export function Landing() {
   const [closeForm, setCloseForm] = useState(false);
@@ -49,11 +50,13 @@ export function Landing() {
       <Hero />
       <Functions />
       <Features />
+      <Modal />
       <Slide triggerOnce>
         <PricingContainer>
           <Pricing />
           <Pricing />
         </PricingContainer>
+
         {/* <Article id="pricing">
           {winOpen ? <Buy closes={handleClose}></Buy> : null}
           <SubTitle>
