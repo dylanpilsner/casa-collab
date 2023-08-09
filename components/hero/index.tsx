@@ -29,7 +29,7 @@ export function Hero() {
       <Dot />
       <Square />
       <Content>
-        <ColumnBox style={{ alignItems: "flex-start" }}>
+        <ColumnBox style={{ alignItems: "flex-start" }} gap="5px">
           <HeroTitle>Descubrí una nueva forma de vivir</HeroTitle>
           <Line />
           <HeroSubtitle>

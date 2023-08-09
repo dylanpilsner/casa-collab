@@ -26,3 +26,14 @@ a {
   color: inherit;
   cursor: pointer;
 }
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+::-webkit-scrollbar-track {
+  background-color: #cccccc;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--main-orange);
+}

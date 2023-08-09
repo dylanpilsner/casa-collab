@@ -26,7 +26,7 @@ import Close from "@/ui/icons/close.svg";
 import { Hero } from "../hero";
 import { sendForm } from "@/lib/api";
 import { Slide } from "react-awesome-reveal";
-import { Loader } from "../loader";
+import { Loader } from "../../ui/loader";
 
 export function Main() {
   const [winOpen, setWinOpen] = useState(false);
@@ -37,7 +37,7 @@ export function Main() {
     if (loading) {
       setTimeout(() => {
         setLoading(false);
-        alert("Gracias por su compra");
+        alert("Su mensaje se envió correctamente");
       }, 2000);
     }
   }, [loading]);
@@ -45,9 +45,11 @@ export function Main() {
   const handleClick = (e: any) => {
     e.preventDefault();
     setWinOpen(true);
+    (document as any).body.style.overflow = "hidden";
   };
   const handleClose = (e: any) => {
     setWinOpen(false);
+    (document as any).body.style.overflow = "auto";
   };
   const handleCloseForm = (e: any) => {
     e.preventDefault();
@@ -65,7 +67,7 @@ export function Main() {
   return (
     <MainContainer>
       <Hero />
-      <Slide triggerOnce={true}>
+      <Slide triggerOnce>
         <Article>
           <SubTitle>
             Qué podés{" "}
@@ -116,7 +118,7 @@ export function Main() {
         <span style={{ color: "var(--main-orange)" }}> destacados</span>
       </SubTitle>
 
-      <Slide triggerOnce={true}>
+      <Slide triggerOnce>
         <Article>
           <div
             style={{
@@ -128,7 +130,9 @@ export function Main() {
           >
             <Task />
             <div style={{ width: "420px" }}>
-              <SubTitle>Asignación de tareas</SubTitle>
+              <SubTitle style={{ textAlign: "left" }}>
+                Asignación de tareas
+              </SubTitle>
               <hr
                 style={{
                   width: "50px",
@@ -136,7 +140,7 @@ export function Main() {
                   margin: 0,
                 }}
               ></hr>
-              <Body $align="start">
+              <Body align="start">
                 Descubre la forma más inteligente y eficiente de asignar y
                 gestionar las tareas del hogar. Nuestra aplicación te permite
                 delegar responsabilidades de manera rápida y sencilla,
@@ -150,7 +154,7 @@ export function Main() {
         </Article>
       </Slide>
 
-      <Slide triggerOnce={true}>
+      <Slide triggerOnce>
         <Article>
           <div
             style={{
@@ -162,7 +166,9 @@ export function Main() {
             }}
           >
             <div style={{ width: "420px" }}>
-              <SubTitle>Seguimiento del progreso</SubTitle>
+              <SubTitle style={{ textAlign: "left" }}>
+                Seguimiento del progreso
+              </SubTitle>
               <hr
                 style={{
                   width: "50px",
@@ -183,7 +189,7 @@ export function Main() {
         </Article>
       </Slide>
 
-      <Slide triggerOnce={true}>
+      <Slide triggerOnce>
         <Article>
           <div
             style={{
@@ -195,7 +201,9 @@ export function Main() {
           >
             <Finance />
             <div style={{ width: "420px" }}>
-              <SubTitle>Registro de gastos compartido</SubTitle>
+              <SubTitle style={{ textAlign: "left" }}>
+                Registro de gastos compartido
+              </SubTitle>
               <hr
                 style={{
                   width: "50px",
@@ -215,7 +223,7 @@ export function Main() {
         </Article>
       </Slide>
 
-      <Slide triggerOnce={true}>
+      <Slide triggerOnce>
         <Article id="pricing">
           {winOpen ? <Buy closes={handleClose}></Buy> : null}
           <SubTitle>

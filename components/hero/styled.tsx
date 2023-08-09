@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const HeroContainer = styled.section`
-  /* display:flex; */
   width: 100%;
   height: 100%;
   position: relative;
@@ -56,7 +55,7 @@ export const BottomMask = styled.img`
   width: 100%;
   position: absolute;
   bottom: 100px;
-  left: -50px;
+  left: -80px;
 
   @media (min-width: 1020px) {
     bottom: -50px;
