@@ -20,7 +20,7 @@ type Body = {
 
 export const Body = styled.p<Body>`
   color: ${((props: any) => props.bg) || "#fff"};
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1rem;
   text-align: ${((props: any) => props.align) || "center"};
 

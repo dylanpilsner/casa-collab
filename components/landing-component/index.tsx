@@ -5,13 +5,10 @@ import React from "react";
 import Close from "@/ui/icons/close.svg";
 import { Hero } from "../hero";
 import { sendForm } from "@/lib/api";
-import { Slide } from "react-awesome-reveal";
 import { Loader } from "../../ui/loader";
 import { Functions } from "./functions";
 import { Features } from "./features";
 import { Pricing } from "../pricing";
-import { Article } from "@/ui/box/styled";
-import { Modal } from "../modal";
 
 export function Landing() {
   const [closeForm, setCloseForm] = useState(false);
@@ -44,114 +41,8 @@ export function Landing() {
       <Hero />
       <Functions />
       <Features />
-      {/* <Slide triggerOnce> */}
       <Pricing />
 
-      {/* <Article id="pricing">
-          {winOpen ? <Buy closes={handleClose}></Buy> : null}
-          <SubTitle>
-            Empezá tu{" "}
-            <span style={{ color: "var(--main-orange)" }}> free trial </span>por
-            un mes, accediendo a todas las funciones!
-          </SubTitle>
-          <h4>
-            Después, podés elegir pagar la versión{" "}
-            <span style={{ color: "var(--main-orange)" }}>premium</span> o
-            continuar con el plan gratuito
-          </h4>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly",
-              flexWrap: "wrap",
-              marginTop: "4rem",
-            }}
-          >
-            <ContainerPrice>
-              <h2>Free</h2>
-              <Body>Accéde al plan gratuito y comenza el cambio</Body>
-              <p
-                style={{
-                  color: "#FF9052",
-                  fontSize: "3rem",
-                  fontWeight: "bold",
-                  margin: 0,
-                }}
-              >
-                U$D 0
-              </p>
-              <Body>
-                {" "}
-                <span style={{ color: "var(--main-orange)" }}>Per Month</span>
-              </Body>
-              <Button onClick={handleClick}>Comprar</Button>
-              <div style={{ marginTop: "3rem", textAlign: "start" }}>
-                <CheckDiv>
-                  <Check />
-                  <Body>Asignación de tareas y seguimiento del progreso</Body>
-                </CheckDiv>
-                <CheckDiv>
-                  <Check />
-                  <Body>Recordatorios y notificaciones automáticas.</Body>
-                </CheckDiv>
-                <CheckDiv>
-                  <Check />
-                  <Body>Recordatorios y notificaciones automáticas.</Body>
-                </CheckDiv>
-                <CheckDiv>
-                  <NotCheck />
-                  <Body>Registro de gastos compartidos</Body>
-                </CheckDiv>
-                <CheckDiv>
-                  <NotCheck />
-                  <Body>Cálculo automático de contribuciones</Body>
-                </CheckDiv>
-              </div>
-            </ContainerPrice>
-            <ContainerPrice>
-              <h2>Premium</h2>
-              <Body>Probá todas las funcionalidades gratis por 30 días</Body>
-              <p
-                style={{
-                  color: "#FF9052",
-                  fontSize: "3rem",
-                  fontWeight: "bold",
-                  margin: 0,
-                }}
-              >
-                U$D 1
-              </p>
-              <Body>
-                {" "}
-                <span style={{ color: "var(--main-orange)" }}>Per Month</span>
-              </Body>
-              <Button onClick={handleClick}>Comprar</Button>
-              <div style={{ marginTop: "3rem", textAlign: "start" }}>
-                <CheckDiv>
-                  <Check />
-                  <Body>Asignación de tareas y seguimiento del progreso</Body>
-                </CheckDiv>
-                <CheckDiv>
-                  <Check />
-                  <Body>Recordatorios y notificaciones automáticas.</Body>
-                </CheckDiv>
-                <CheckDiv>
-                  <Check />
-                  <Body>Recordatorios y notificaciones automáticas.</Body>
-                </CheckDiv>
-                <CheckDiv>
-                  <Check />
-                  <Body>Registro de gastos compartidos</Body>
-                </CheckDiv>
-                <CheckDiv>
-                  <Check />
-                  <Body>Cálculo automático de contribuciones</Body>
-                </CheckDiv>
-              </div>
-            </ContainerPrice>
-          </div>
-        </Article> */}
-      {/* </Slide> */}
       {loading ? <Loader></Loader> : null}
       <div style={{ backgroundColor: "#FAFAFF" }}>
         <SubTitle id="contact">
@@ -234,7 +125,7 @@ export function Landing() {
                 </div>
                 <div style={{ display: "inherit", justifyContent: "center" }}>
                   {/* <Button> */}
-                  {/* Enviar <Send />  VEEEEEEEEEEEEEEEEEEEER*/}
+                  {/* Enviar <Send />  */}
                   {/* </Button> */}
                 </div>
               </form>

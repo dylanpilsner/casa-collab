@@ -1,8 +1,6 @@
 import { SubTitle, Title } from "@/ui/typography";
 import { StyledModal, StyledModalContainer, TextContainer } from "./styled";
 import { Close } from "@/ui/icons/styled";
-import { useEffect, useState } from "react";
-import { usePricingModal } from "@/lib/hooks";
 
 export function Modal({ winStatus, closeModal }: any) {
   function handleCloseModal() {

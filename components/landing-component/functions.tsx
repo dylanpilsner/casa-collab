@@ -1,5 +1,6 @@
 import { Body, SubTitle } from "@/ui/typography";
-import { Article, FirstContainer } from "./styled";
+import { FirstContainer } from "./styled";
+import { Article } from "@/ui/box/styled";
 import { Slide } from "react-awesome-reveal";
 
 export function Functions() {

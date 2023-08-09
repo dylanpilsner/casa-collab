@@ -10,10 +10,6 @@ export const MainContainer = styled.main`
   }
 `;
 
-export const Article = styled.article`
-  text-align: center;
-`;
-
 export const FirstContainer = styled.div`
   display: grid;
   gap: 2rem;
