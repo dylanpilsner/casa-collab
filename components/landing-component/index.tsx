@@ -1,11 +1,5 @@
 import { SubTitle } from "@/ui/typography";
-import {
-  MainContainer,
-  Input,
-  Label,
-  FormDiv,
-  PricingContainer,
-} from "./styled";
+import { MainContainer, Input, Label, FormDiv } from "./styled";
 import { useEffect, useState } from "react";
 import React from "react";
 import Close from "@/ui/icons/close.svg";
@@ -50,14 +44,10 @@ export function Landing() {
       <Hero />
       <Functions />
       <Features />
-      <Modal />
-      <Slide triggerOnce>
-        <PricingContainer>
-          <Pricing />
-          <Pricing />
-        </PricingContainer>
+      {/* <Slide triggerOnce> */}
+      <Pricing />
 
-        {/* <Article id="pricing">
+      {/* <Article id="pricing">
           {winOpen ? <Buy closes={handleClose}></Buy> : null}
           <SubTitle>
             Empezá tu{" "}
@@ -161,7 +151,7 @@ export function Landing() {
             </ContainerPrice>
           </div>
         </Article> */}
-      </Slide>
+      {/* </Slide> */}
       {loading ? <Loader></Loader> : null}
       <div style={{ backgroundColor: "#FAFAFF" }}>
         <SubTitle id="contact">

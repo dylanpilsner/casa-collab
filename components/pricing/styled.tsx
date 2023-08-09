@@ -33,3 +33,15 @@ export const CheckDiv = styled.div`
   grid-auto-rows: auto;
   grid-template-columns: repeat(1, auto 1fr);
 `;
+
+export const PricingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 1020px) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+  }
+`;

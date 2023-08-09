@@ -3,19 +3,13 @@ import { ContainerPrice, CheckDiv, Button } from "./styled";
 import Check from "@/ui/icons/check.svg";
 import NotCheck from "@/ui/icons/notCheck.svg";
 import { useState } from "react";
-export function PricingCard() {
-  const [winOpen, setWinOpen] = useState(false);
+import { Modal } from "../modal";
+import { usePricingModal } from "@/lib/hooks";
 
-  const handleClose = (e: any) => {
-    setWinOpen(false);
-    (document as any).body.style.overflow = "auto";
-  };
-
-  const handleClick = (e: any) => {
-    e.preventDefault();
-    setWinOpen(true);
-    (document as any).body.style.overflow = "hidden";
-  };
+export function PricingCard({ callback }: any) {
+  function handleClick() {
+    callback();
+  }
 
   return (
     <ContainerPrice>

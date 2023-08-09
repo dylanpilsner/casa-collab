@@ -6,7 +6,6 @@ export const StyledModalContainer = styled.div`
   align-items: center;
   position: fixed;
   top: 20px;
-  /* margin-top: -25%; */
   left: 0;
   width: 100%;
   height: 100%;
@@ -27,11 +26,8 @@ export const StyledModal = styled.div`
   align-items: center;
 `;
 
-export const CloseButton = styled.div`
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #ff5733;
-  color: #fff;
-  border: none;
-  cursor: pointer;
+export const TextContainer = styled.div`
+  display: flex;
+  height: 100%;
+  align-items: center;
 `;

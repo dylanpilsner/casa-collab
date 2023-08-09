@@ -20,11 +20,11 @@ export const RowBox = styled(ColumnBox)`
 `;
 
 type Article = {
-  bgColor?: string;
+  bgcolor?: string;
 };
 
 export const Article = styled.article<Article>`
   text-align: center;
   padding: 0 20px;
-  background-color: ${({ bgColor }) => (bgColor ? bgColor : "#fff")};
+  background-color: ${(props) => (props.bgcolor ? props.bgcolor : "#fff")};
 `;

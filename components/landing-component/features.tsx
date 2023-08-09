@@ -22,7 +22,7 @@ export function Features() {
         <Feature
           src="/progress-tracking.png"
           direction="row-reverse"
-          bgColor="#FAFAFF"
+          bgcolor="#FAFAFF"
           title="Seguimiento del progreso"
         >
           Mantén un control total sobre el progreso de las tareas asignadas.

@@ -51,15 +51,3 @@ export const Label = styled.label`
   display: block;
   font-weight: 600;
 `;
-
-export const PricingContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media (min-width: 1020px) {
-    flex-direction: row;
-    justify-content: center;
-    gap: 100px;
-  }
-`;

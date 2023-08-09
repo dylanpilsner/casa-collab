@@ -6,13 +6,13 @@ type Feature = {
   children: React.ReactNode;
   src: string;
   title: string;
-  bgColor?: string;
+  bgcolor?: string;
   direction?: string;
 };
 
-export function Feature({ children, src, bgColor, direction, title }: Feature) {
+export function Feature({ children, src, bgcolor, direction, title }: Feature) {
   return (
-    <Article bgColor={bgColor}>
+    <Article bgcolor={bgcolor}>
       <FeatureContent direction={direction}>
         <FeatureImg src={src} />
         <div style={{ width: "420px" }}>
