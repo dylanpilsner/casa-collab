@@ -9,6 +9,8 @@ import { Loader } from "../../ui/loader";
 import { Functions } from "./functions";
 import { Features } from "./features";
 import { Pricing } from "../pricing";
+import { Button } from "../pricing/styled";
+import Send from "@/ui/icons/send.svg";
 
 export function Landing() {
   const [closeForm, setCloseForm] = useState(false);
@@ -124,9 +126,9 @@ export function Landing() {
                   ></textarea>
                 </div>
                 <div style={{ display: "inherit", justifyContent: "center" }}>
-                  {/* <Button> */}
-                  {/* Enviar <Send />  */}
-                  {/* </Button> */}
+                  <Button>
+                    Enviar <Send />
+                  </Button>
                 </div>
               </form>
             </div>
