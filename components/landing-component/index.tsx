@@ -43,7 +43,7 @@ export function Landing() {
       <Features />
       <Pricing />
 
-      {loading ? <Loader></Loader> : null}
+      {loading ? <Loader /> : null}
       <div style={{ backgroundColor: "#FAFAFF" }}>
         <SubTitle id="contact">
           {" "}
