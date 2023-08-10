@@ -1,6 +1,10 @@
 import style from "./style.module.css";
 
-export function Loader({ visibility }: any) {
+type Loader = {
+  visibility: boolean;
+};
+
+export function Loader({ visibility }: Loader) {
   const isVisible = visibility ? "flex" : "none";
 
   return (

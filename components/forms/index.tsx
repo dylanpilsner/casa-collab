@@ -4,7 +4,17 @@ import Send from "@/ui/icons/send.svg";
 import { Button } from "../pricing/styled";
 import { TextArea, TextField } from "@/ui/text-field";
 
-export function ContactForm({ callback, contactStatus, closeContact }: any) {
+type ContactForm = {
+  callback: (argument: any) => void;
+  contactStatus: boolean;
+  closeContact: () => void;
+};
+
+export function ContactForm({
+  callback,
+  contactStatus,
+  closeContact,
+}: ContactForm) {
   function handleSubmit(e: any) {
     e.preventDefault();
     const target = e.target;

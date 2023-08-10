@@ -2,7 +2,12 @@ import { SubTitle, Title } from "@/ui/typography";
 import { StyledModal, StyledModalContainer, TextContainer } from "./styled";
 import { Close } from "@/ui/icons/styled";
 
-export function Modal({ winStatus, closeModal }: any) {
+type Modal = {
+  winStatus: boolean;
+  closeModal: () => void;
+};
+
+export function Modal({ winStatus, closeModal }: Modal) {
   function handleCloseModal() {
     closeModal();
   }

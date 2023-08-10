@@ -3,7 +3,7 @@ import { Hero } from "../hero";
 import { Functions } from "./functions";
 import { Features } from "./features";
 import { Pricing } from "../pricing";
-import { Contact } from "../contact";
+import { Contact } from "@/components/contact/index";
 
 export function Landing() {
   return (

@@ -4,13 +4,21 @@ import Check from "@/ui/icons/check.svg";
 import NotCheck from "@/ui/icons/notCheck.svg";
 import { MainButton } from "@/ui/buttons";
 
+type PricingCard = {
+  callback: () => void;
+  title: string;
+  description: string;
+  children: any;
+  price: string;
+};
+
 export function PricingCard({
   callback,
   title,
   description,
   children,
   price,
-}: any) {
+}: PricingCard) {
   function isChecked(item: boolean) {
     return item ? <Check /> : <NotCheck />;
   }
