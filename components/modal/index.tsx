@@ -7,8 +7,10 @@ export function Modal({ winStatus, closeModal }: any) {
     closeModal();
   }
 
+  const isVisible = winStatus ? "inherit" : "none";
+
   return (
-    <StyledModalContainer style={{ display: winStatus ? "inherit" : "none" }}>
+    <StyledModalContainer style={{ display: isVisible }}>
       <StyledModal>
         <Close onClick={handleCloseModal} />
         <TextContainer>
