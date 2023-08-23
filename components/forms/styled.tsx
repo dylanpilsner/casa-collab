@@ -13,7 +13,7 @@ export const FormContainer = styled.div`
   backdrop-filter: blur(2px);
 `;
 
-export const Form = styled.form`
+export const StyledContactForm = styled.form`
   display: flex;
   flex-direction: column;
   background-color: #26302e;
@@ -21,4 +21,12 @@ export const Form = styled.form`
   color: #fff;
   padding: 30px 3rem;
   border-radius: 10px;
+`;
+
+export const StyledSignForm = styled(StyledContactForm)`
+  background-color: transparent;
+  width: 100%;
+  max-width: 500px;
+  height: 55%;
+  border-radius: 6px;
 `;

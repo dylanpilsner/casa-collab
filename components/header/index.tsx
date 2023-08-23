@@ -3,7 +3,7 @@ import { Logo } from "@/ui/logo";
 import { Burger } from "../burger";
 import { useEffect, useState } from "react";
 import { NavMenu } from "../mobile-nav-menu";
-import { MainButton } from "@/ui/buttons";
+import { MainButton, SecondaryButton } from "@/ui/buttons";
 import { DesktopNavMenu } from "../desktop-nav-menu";
 import { useRouter } from "next/router";
 
@@ -50,7 +50,11 @@ export function Header() {
         <Logo />
         <Burger callback={toggleNavMenu} menuStatus={navMenuStatus} />
         <DesktopNavMenu />
-        <MainButton text="Contacto" callback={() => goTo("#contact")} />
+        <MainButton
+          text="Iniciar sesión"
+          width="171px"
+          callback={() => goTo("sign-in")}
+        />
       </HeaderContainer>
       <NavMenu status={navMenuStatus} closeNavMenu={closeNavMenu} />
     </StyledHeader>

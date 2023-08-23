@@ -8,7 +8,7 @@ import {
 } from "@/ui/shapes/styled";
 import { BottomMask, Content, HeroContainer, HeroImg, TopMask } from "./styled";
 import { HeroSubtitle, HeroTitle } from "@/ui/typography";
-import { CallButton } from "@/ui/buttons";
+import { SecondaryButton } from "@/ui/buttons";
 import { ColumnBox } from "@/ui/box/styled";
 import { useRouter } from "next/router";
 
@@ -36,8 +36,9 @@ export function Hero() {
             Convivir es fácil: Optimizá la distribución de tareas y gastos en tu
             hogar
           </HeroSubtitle>
-          <CallButton
+          <SecondaryButton
             text="Empezar prueba gratis"
+            width="250px"
             callback={() => goTo("#pricing")}
           />
         </ColumnBox>

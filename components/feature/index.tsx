@@ -1,4 +1,4 @@
-import { Body, SubTitle } from "@/ui/typography";
+import { Body, Subtitle } from "@/ui/typography";
 import { FeatureContent, FeatureImg, Separator } from "./styled";
 import { Article } from "@/ui/box/styled";
 
@@ -16,7 +16,7 @@ export function Feature({ children, src, bgcolor, direction, title }: Feature) {
       <FeatureContent direction={direction}>
         <FeatureImg src={src} />
         <div style={{ width: "420px" }}>
-          <SubTitle style={{ textAlign: "left" }}>{title}</SubTitle>
+          <Subtitle style={{ textAlign: "left" }}>{title}</Subtitle>
           <Separator />
           <Body align="start">{children}</Body>
         </div>

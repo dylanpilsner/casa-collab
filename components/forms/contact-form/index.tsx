@@ -1,8 +1,7 @@
-import { FormContainer, Form } from "./styled";
+import { FormContainer, StyledContactForm } from "../styled";
 import { Close } from "@/ui/icons/styled";
-import Send from "@/ui/icons/send.svg";
-import { Button } from "../pricing/styled";
 import { TextArea, TextField } from "@/ui/text-field";
+import { SendButton } from "@/ui/buttons";
 
 type ContactForm = {
   callback: (argument: any) => void;
@@ -30,7 +29,7 @@ export function ContactForm({
 
   return (
     <FormContainer style={{ display: isVisible }}>
-      <Form onSubmit={handleSubmit}>
+      <StyledContactForm onSubmit={handleSubmit}>
         <Close onClick={handleCloseContact} />
         <TextField title="Tu nombre" name="name" required />
         <TextField
@@ -42,11 +41,9 @@ export function ContactForm({
         />
         <TextArea title="Mensaje" name="message" required />
         <div style={{ display: "inherit", justifyContent: "center" }}>
-          <Button>
-            Enviar <Send />
-          </Button>
+          <SendButton text="Enviar"></SendButton>
         </div>
-      </Form>
+      </StyledContactForm>
     </FormContainer>
   );
 }

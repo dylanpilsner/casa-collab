@@ -3,7 +3,7 @@ import { Modal } from "@/components/modal/index";
 import { PricingCard } from "../cards";
 import { usePricingModal } from "@/lib/hooks";
 import { Fade } from "react-awesome-reveal";
-import { SubTitle } from "@/ui/typography";
+import { Subtitle } from "@/ui/typography";
 
 export function Pricing() {
   const { winStatus, openModal, closeModal } = usePricingModal();
@@ -14,11 +14,11 @@ export function Pricing() {
 
   return (
     <div>
-      <SubTitle>
+      <Subtitle>
         Empezá tu{" "}
         <span style={{ color: "var(--main-orange)" }}> free trial </span>por un
         mes, accediendo a todas las funciones!
-      </SubTitle>
+      </Subtitle>
       <h4 style={{ textAlign: "center" }}>
         Después, podés elegir pagar la versión{" "}
         <span style={{ color: "var(--main-orange)" }}>premium</span> o continuar

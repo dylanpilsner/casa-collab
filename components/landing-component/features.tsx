@@ -1,4 +1,4 @@
-import { SubTitle } from "@/ui/typography";
+import { Subtitle } from "@/ui/typography";
 import { Slide } from "react-awesome-reveal";
 import { Feature } from "../feature";
 
@@ -6,10 +6,10 @@ export function Features() {
   return (
     <div id="features">
       <Slide triggerOnce>
-        <SubTitle>
+        <Subtitle>
           Beneficios{" "}
           <span style={{ color: "var(--main-orange)" }}> destacados</span>
-        </SubTitle>
+        </Subtitle>
         <Feature src="/tasks-assign.png" title="Asignación de tareas">
           Descubre la forma más inteligente y eficiente de asignar y gestionar
           las tareas del hogar. Nuestra aplicación te permite delegar

@@ -22,14 +22,3 @@ export const CheckDiv = styled.div`
   grid-auto-rows: auto;
   grid-template-columns: repeat(1, auto 1fr);
 `;
-
-export const Button = styled.button`
-  width: 200px;
-  height: 50px;
-  border: none;
-  background-color: var(--main-orange);
-  border-radius: 5px;
-  color: #fff;
-  font-size: 1.3rem;
-  cursor: pointer;
-`;

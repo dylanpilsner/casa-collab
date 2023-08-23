@@ -10,7 +10,7 @@ export function Logo() {
   }
 
   return (
-    <LogoBox onClick={() => goTo("#hero")}>
+    <LogoBox onClick={() => goTo("/")}>
       <ImgContainer>
         <img
           src="/logotipo.png"

@@ -1,5 +1,5 @@
-import { SubTitle } from "@/ui/typography";
-import { ContactForm } from "../forms";
+import { Subtitle } from "@/ui/typography";
+import { ContactForm } from "../forms/contact-form";
 import { useContact, useLoader } from "@/lib/hooks";
 import { useState } from "react";
 import { sendForm } from "@/lib/api";
@@ -31,7 +31,7 @@ export function Contact() {
         visible={messageVisibility}
         onClose={closeMessage}
       />
-      <SubTitle id="contact">
+      <Subtitle id="contact">
         Podés contactarnos apretando{" "}
         <span
           style={{ color: "var(--main-orange)", cursor: "pointer" }}
@@ -39,7 +39,7 @@ export function Contact() {
         >
           aquí
         </span>
-      </SubTitle>
+      </Subtitle>
       <ContactForm
         contactStatus={contactStatus}
         closeContact={closeContact}

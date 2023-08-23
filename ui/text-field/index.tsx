@@ -17,7 +17,9 @@ export function TextField({
 }: TextField) {
   return (
     <div>
-      <Label htmlFor={name}>{title}</Label>
+      <Label htmlFor={name} style={{ fontFamily: "var(--main-font)" }}>
+        {title}
+      </Label>
       <Input
         type={type}
         name={name}
@@ -32,7 +34,9 @@ export function TextField({
 export function TextArea({ name, placeholder, title, required }: TextField) {
   return (
     <div>
-      <Label htmlFor={name}>{title}</Label>
+      <Label htmlFor={name} style={{ fontFamily: "var(--main-font)" }}>
+        {title}
+      </Label>
       <StyledTextArea
         name={name}
         id={name}

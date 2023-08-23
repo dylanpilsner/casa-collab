@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
-export const StyledMainButton = styled.button`
+type SecondaryButton = {
+  width?: string;
+  color?: string;
+};
+
+export const StyledMainButton = styled.button<SecondaryButton>`
   display: none;
   height: 60px;
-  width: 171px;
+  width: ${(props) => props.width ?? "100%"};
+  /* width: 171px; */
   background: var(--main-orange);
-  color: var(--almost-black);
+  color: ${(props) => props.color ?? "var(--almost-black)"};
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   font-family: var(--main-font);
   font-weight: 600;
   font-size: 18px;
@@ -22,14 +28,24 @@ export const StyledMainButton = styled.button`
   }
 `;
 
-export const StyledCallButton = styled(StyledMainButton)`
+export const StyledSecondaryButton = styled(StyledMainButton)`
   display: initial;
   background-color: var(--almost-black);
   color: #fff;
   height: 62px;
-  width: 250px;
-
   &:hover {
     background-color: #393d3f;
   }
 `;
+
+// export const StyledSecondaryButton = styled(StyledMainButton)`
+//   background-color: transparent;
+//   /* border: 2.2px solid var(--almost-black); */
+//   color: var(--english-walnut);
+//   border-radius: 5px;
+
+//   &:hover {
+//     background-color: rgb(217, 217, 217, 0.5);
+//     /* color: #fff; */
+//   }
+// `;

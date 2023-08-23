@@ -8,8 +8,9 @@ export const Title = styled.h1<Typography>`
   color: ${(props) => (props.bg ? props.bg : "black")};
   font-size: 2.5rem;
   text-align: center;
+  font-family: var(--main-font);
 `;
-export const SubTitle = styled(Title).attrs({ as: "h2" })`
+export const Subtitle = styled(Title).attrs({ as: "h2" })`
   font-size: 1.5rem;
   text-align: center;
 `;
@@ -23,6 +24,7 @@ export const Body = styled.p<Body>`
   font-weight: 400;
   font-size: 1rem;
   text-align: ${((props: any) => props.align) || "center"};
+  font-family: var(--main-font);
 
   @media (max-width: 1020px) {
     text-align: center !important;
@@ -75,7 +77,7 @@ export const HeroTitle = styled(Title)`
   }
 `;
 
-export const HeroSubtitle = styled(SubTitle)`
+export const HeroSubtitle = styled(Subtitle)`
   text-align: left;
   font-weight: 400;
   max-width: 371px;

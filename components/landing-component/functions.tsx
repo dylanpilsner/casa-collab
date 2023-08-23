@@ -1,4 +1,4 @@
-import { Body, SubTitle } from "@/ui/typography";
+import { Body, Subtitle } from "@/ui/typography";
 import { FirstContainer } from "./styled";
 import { Article } from "@/ui/box/styled";
 import { Slide } from "react-awesome-reveal";
@@ -7,9 +7,9 @@ export function Functions() {
   return (
     <Slide triggerOnce>
       <Article>
-        <SubTitle>
+        <Subtitle>
           Qué podés <span style={{ color: "var(--main-orange)" }}> hacer?</span>
-        </SubTitle>
+        </Subtitle>
         <FirstContainer>
           <div>
             <img src="/graph_icon.png" />

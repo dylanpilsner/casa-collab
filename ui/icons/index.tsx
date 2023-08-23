@@ -23,7 +23,7 @@ export function SocialMedia({ text, type, url }: SocialMedia) {
       onClick={handleClick}
     >
       {socialMedia}
-      <Body style={{ fontFamily: "var(--main-font)" }}>{text}</Body>
+      <Body>{text}</Body>
     </RowBox>
   );
 }
