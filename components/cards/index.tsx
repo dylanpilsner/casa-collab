@@ -1,5 +1,5 @@
 import { Body } from "@/ui/typography";
-import { ContainerPrice, CheckDiv, Button } from "./styled";
+import { ContainerPrice, CheckDiv } from "./styled";
 import Check from "@/ui/icons/check.svg";
 import NotCheck from "@/ui/icons/notCheck.svg";
 import { MainButton } from "@/ui/buttons";

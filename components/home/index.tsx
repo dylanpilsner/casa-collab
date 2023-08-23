@@ -10,8 +10,7 @@ export function HomeComponent() {
 
   return (
     <MainContainer>
-      test
-      {/* <button onClick={handleClick}>TEST</button> */}
+      <button onClick={handleClick}>TEST</button>
     </MainContainer>
   );
 }
