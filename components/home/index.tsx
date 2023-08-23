@@ -1,4 +1,4 @@
-import { useIsLogged } from "@/lib/hooks";
+// import { useIsLogged } from "@/lib/hooks";
 import { MainContainer } from "./styled";
 
 export function HomeComponent() {
@@ -10,7 +10,8 @@ export function HomeComponent() {
 
   return (
     <MainContainer>
-      <button onClick={handleClick}>TEST</button>
+      test
+      {/* <button onClick={handleClick}>TEST</button> */}
     </MainContainer>
   );
 }
