@@ -1,33 +1,45 @@
-import {
-  HeaderContainer,
-  StyledHeader,
-  UserContainer,
-  UserImg,
-  UserName,
-} from "./styled";
+import { HeaderContainer, UserContainer, UserImg, UserName } from "./styled";
 import { Logo } from "@/ui/logo";
-import { Burger, LandingBurger } from "../burger";
+import { LandingBurger } from "../burger";
 import { useEffect, useState } from "react";
 import { LandingMobileNavMenu } from "../nav-menu/mobile";
 import { MainButton } from "@/ui/buttons";
 import { LandingDesktopNavMenu, NavMenu } from "../nav-menu/desktop";
 import { useRouter } from "next/router";
-import { User } from "@/ui/typography";
-import { Extend } from "@/ui/icons/styled";
 
 export function LoggedInHeader() {
+  const [navStatus, setNavStatus] = useState("") as any;
+
+  function toggleNavMenu() {
+    if (!navStatus || navStatus === "closed") {
+      setNavStatus("opened");
+      console.log(navStatus);
+    } else {
+      setNavStatus("closed");
+      console.log(navStatus);
+    }
+
+    // document.body.style.overflow = "hidden";
+    console.log(navStatus);
+
+    document.body.style.overflow = navStatus === "opened" ? "auto" : "hidden";
+  }
+
   return (
     <div style={{ height: 100 }}>
       <HeaderContainer>
         <Logo />
         <div style={{ display: "flex", alignItems: "center" }}>
           <UserContainer>
-            <UserImg src="https://res.cloudinary.com/denl6uihc/image/upload/v1692831428/vrtuo2ctutn5xkzzbuly.jpg" />
+            <UserImg
+              src="https://res.cloudinary.com/denl6uihc/image/upload/v1692831428/vrtuo2ctutn5xkzzbuly.jpg"
+              onClick={toggleNavMenu}
+            />
             <UserName>Dylan Pilsner</UserName>
           </UserContainer>
         </div>
       </HeaderContainer>
-      <NavMenu />
+      <NavMenu navStatus={navStatus} callback={toggleNavMenu} />
     </div>
   );
 }

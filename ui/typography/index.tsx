@@ -56,7 +56,7 @@ export const NavItem = styled.a`
       width: 0;
       height: 2px;
       background-color: var(--almost-black);
-      transition: 0.3s ease;
+      transition: var(--default-transition);
     }
 
     &:hover::after {

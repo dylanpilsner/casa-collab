@@ -4,6 +4,7 @@ import {
   StyledDesktopNavMenu,
   StyledNavMenu,
 } from "./styled";
+import { CloseNav } from "@/ui/icons/styled";
 
 export function LandingDesktopNavMenu() {
   return (
@@ -15,10 +16,17 @@ export function LandingDesktopNavMenu() {
   );
 }
 
-export function NavMenu() {
+type navStatus = {
+  navStatus: "opened" | "closed";
+  callback?: () => void;
+};
+
+export function NavMenu({ navStatus, callback }: navStatus) {
   return (
-    <BackgroundNavMenu>
-      <StyledNavMenu>test</StyledNavMenu>
+    <BackgroundNavMenu className={navStatus}>
+      <StyledNavMenu className={navStatus}>
+        <CloseNav onClick={callback} />
+      </StyledNavMenu>
     </BackgroundNavMenu>
   );
 }
