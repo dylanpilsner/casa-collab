@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Close, Success } from "../icons/styled";
+import { Close } from "../icons/styled";
 import { Body } from "../typography";
 import { MessageContainer } from "./styled";
 
@@ -13,7 +13,6 @@ export function Message({ message, visible, onClose }: Message) {
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
     setIsVisible(visible);
-    console.log(visible);
   }, [visible]);
 
   function handleCloseMessage() {

@@ -8,7 +8,7 @@ type NavMenu = {
   closeNavMenu?: any;
 };
 
-export function NavMenu({ status, closeNavMenu }: NavMenu) {
+export function LandingMobileNavMenu({ status, closeNavMenu }: NavMenu) {
   return (
     <StyledNavMenu className={status}>
       <NavTriangle />
@@ -23,7 +23,9 @@ export function NavMenu({ status, closeNavMenu }: NavMenu) {
           <NavItem href="#social-medias">Social medias</NavItem>
         </div>
         <div onClick={closeNavMenu}>
-          <NavItem href="#contact">Contacto</NavItem>
+          <NavItem href="/sign-in" style={{ textDecoration: "underline" }}>
+            Iniciar sesión
+          </NavItem>
         </div>
       </ColumnBox>
     </StyledNavMenu>

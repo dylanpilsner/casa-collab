@@ -100,3 +100,10 @@ export const Rights = styled.p`
   font-weight: 400;
   font-size: 16px;
 `;
+
+export const User = styled.span`
+  color: var(--almost-black);
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Nunito Sans";
+`;

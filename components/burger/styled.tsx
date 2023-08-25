@@ -50,10 +50,19 @@ const closedXMid = keyframes`
 `;
 
 export const BurgerContainer = styled(ColumnBox)`
+  display: none;
+  gap: 8px;
+
+  @media (min-width: 869px) {
+    display: flex;
+  }
+`;
+
+export const LandingBurgerContainer = styled(ColumnBox)`
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
-  gap: ${({ className }) => (className === "opened" ? 0 : "10px")};
+  gap: ${({ className }) => (className === "opened" ? 0 : "8px")};
 
   @media (min-width: 869px) {
     display: none;
@@ -83,8 +92,12 @@ function defineClassName(className: any) {
 
 export const BurgerPiece = styled.div`
   background-color: var(--almost-black);
-  height: 2px;
+  border: 1.5px black solid;
   width: 100%;
+  cursor: pointer;
+`;
+
+export const LandingBurgerPiece = styled(BurgerPiece)`
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;

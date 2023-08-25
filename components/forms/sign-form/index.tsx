@@ -44,6 +44,7 @@ export function SignForm() {
   async function sendEmail(e: any) {
     const target = e.target;
     e.preventDefault();
+
     const res = await sign({ email, code: target.code.value });
 
     if (res.token) {

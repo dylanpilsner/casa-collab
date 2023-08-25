@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
-import { BurgerContainer, BurgerPiece } from "./styled";
+import {
+  LandingBurgerContainer,
+  BurgerContainer,
+  BurgerPiece,
+  LandingBurgerPiece,
+} from "./styled";
 
 type Burger = {
   callback: () => void;
   menuStatus: "opened" | "closed";
 };
 
-export function Burger({ callback, menuStatus }: Burger) {
+export function LandingBurger({ callback, menuStatus }: Burger) {
   const [burgerStatus, setBurgerStatus] = useState("");
   const [burgerStatusTop, setBurgerStatusTop] = useState("");
   const [burgerStatusMiddle, setBurgerStatusMiddle] = useState("");
@@ -31,15 +36,28 @@ export function Burger({ callback, menuStatus }: Burger) {
   }
 
   return (
-    <BurgerContainer
+    <LandingBurgerContainer
       onClick={handleClick}
       className={burgerStatus}
       width="37.5px"
       style={{ height: 26 }}
     >
-      <BurgerPiece className={burgerStatusTop} />
-      <BurgerPiece className={burgerStatusMiddle} />
-      <BurgerPiece className={burgerStatusBottom} />
+      <LandingBurgerPiece className={burgerStatusTop} />
+      <LandingBurgerPiece className={burgerStatusMiddle} />
+      <LandingBurgerPiece className={burgerStatusBottom} />
+    </LandingBurgerContainer>
+  );
+}
+export function Burger({ callback, menuStatus }: any /*Burger*/) {
+  function handleClick() {
+    callback();
+  }
+
+  return (
+    <BurgerContainer width="37.5px" style={{ height: 26, margin: "0 3rem" }}>
+      <BurgerPiece />
+      <BurgerPiece />
+      <BurgerPiece />
     </BurgerContainer>
   );
 }

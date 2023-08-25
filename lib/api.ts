@@ -4,17 +4,14 @@ function setStorageData(key: string, value: Object) {
   localStorage.setItem(key, JSON.stringify(value));
 }
 
-function getSavedToken() {
-  return localStorage.getItem("auth_token");
-}
 export async function fetchApi(input: RequestInfo, options?: any) {
-  const BASE_URL = "http://localhost:3000";
+  const BASE_URL = process.env.HOST || "http://localhost:3000";
   const url = BASE_URL + input;
+
+  options = options || {};
 
   options.headers = {
     ...options.headers,
-    authorization:
-      "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY5MjIyMjk4OX0.HcfiZAJGeZ25VJveeb5o1PimfgmD_fxr4SPMX5J2R_M",
     "content-type": "application/json",
   };
 
@@ -28,9 +25,12 @@ export async function fetchApi(input: RequestInfo, options?: any) {
   const data = await res.json();
 
   console.log(data);
-  return data;
+  if (res.status >= 200 && res.status < 300) {
+    return data;
+  } else {
+    return { status: res.status, error: data };
+  }
 }
-
 export async function sendForm(form: any) {
   const contact = new FormData(form);
 

@@ -19,6 +19,7 @@ export const StyledNavMenu = styled(ColumnBox).attrs({ as: "nav" })`
   height: 100%;
   background-color: #fff;
   position: fixed;
+  top: 0;
   top: -2000px;
   z-index: 3;
   animation-duration: 0.3s;

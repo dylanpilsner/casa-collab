@@ -1,5 +1,8 @@
+import { NextRouter, useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import useSWR from "swr";
+import { fetchApi } from "./api";
+import Cookies from "js-cookie";
 
 function useGetLocalStorageData(key: string) {
   const [data, setData] = useState();
@@ -15,10 +18,54 @@ function useGetLocalStorageData(key: string) {
   return data;
 }
 
+function redirect(data: any, router: NextRouter) {
+  if (!data.status && router.pathname === "/") {
+    router.push("/home");
+  }
+  if (data.status >= 300 && router.pathname !== "/") {
+    router.push("/sign-in");
+    console.log(3);
+  }
+
+  if (!data.status) {
+    if (router.pathname === "/") {
+      console.log(2);
+      router.push("/home");
+    }
+  }
+}
+
+export function useHeader() {
+  const router = useRouter();
+  const pathname = router.pathname;
+  const [isLogged, setIsLogged] = useState(false);
+
+  useEffect(() => {
+    if (pathname !== "/" && pathname !== "/sign-in") {
+      setIsLogged(true);
+    } else {
+      setIsLogged(false);
+    }
+  }, [pathname]);
+
+  return isLogged;
+}
+
 export function useIsLogged() {
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const { data } = useSWR("http://localhost:3000/me", fetcher);
-  return data;
+  useEffect(() => {
+    console.log("test");
+  });
+}
+
+export function useAuth() {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetchApi("/me").then((data) => {
+      redirect(data, router);
+    });
+  }, []);
 }
 
 export function usePricingModal() {

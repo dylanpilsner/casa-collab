@@ -2,61 +2,21 @@ import { HeaderContainer, StyledHeader } from "./styled";
 import { Logo } from "@/ui/logo";
 import { Burger } from "../burger";
 import { useEffect, useState } from "react";
-import { NavMenu } from "../mobile-nav-menu";
+import { NavMenu } from "../nav-menu/mobile";
 import { MainButton, SecondaryButton } from "@/ui/buttons";
-import { DesktopNavMenu } from "../desktop-nav-menu";
+import { DesktopNavMenu } from "../nav-menu/desktop";
 import { useRouter } from "next/router";
+import { useHeader } from "@/lib/hooks";
+import { LoggedInHeader, LoggedOutHeader } from "./headers";
 
 export function Header() {
-  const [navMenuStatus, setNavMenuStatus] = useState("") as any;
-  const [scrolled, setScrolled] = useState(false);
-  const router = useRouter();
-
-  function goTo(url: string) {
-    router.push(url);
-  }
-  function toggleNavMenu() {
-    if (navMenuStatus === "closed" || navMenuStatus === "") {
-      setNavMenuStatus("opened");
-    } else {
-      setNavMenuStatus("closed");
-    }
-  }
-
-  function closeNavMenu() {
-    setNavMenuStatus("closed");
-  }
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollThreshold = 100;
-      if (window.scrollY > scrollThreshold) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const header = useHeader();
 
   return (
+    // <StyledHeader>
     <StyledHeader>
-      <HeaderContainer className={scrolled ? "scrolled" : ""}>
-        <Logo />
-        <Burger callback={toggleNavMenu} menuStatus={navMenuStatus} />
-        <DesktopNavMenu />
-        <MainButton
-          text="Iniciar sesión"
-          width="171px"
-          callback={() => goTo("sign-in")}
-        />
-      </HeaderContainer>
-      <NavMenu status={navMenuStatus} closeNavMenu={closeNavMenu} />
+      {header ? <LoggedInHeader /> : <LoggedOutHeader />}
     </StyledHeader>
+    // </StyledHeader>
   );
 }
