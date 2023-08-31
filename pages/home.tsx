@@ -2,7 +2,6 @@ import { HomeComponent } from "@/components/home";
 import { Layout } from "@/components/layout";
 import { fetchApi, getProfile } from "@/lib/api";
 import { useAuth, useIsLogged } from "@/lib/hooks";
-import Cookies from "js-cookie";
 import { useEffect } from "react";
 export default function Home({ isLogged }: any) {
   return (

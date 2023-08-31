@@ -1,4 +1,4 @@
-import { ColumnBox, RowBox } from "@/ui/box/styled";
+import { RowBox } from "@/ui/box/styled";
 import styled, { keyframes } from "styled-components";
 
 const showsUp = keyframes`
@@ -39,13 +39,10 @@ export const StyledDesktopNavMenu = styled(RowBox)`
 
 export const StyledNavMenu = styled.nav`
   display: flex;
-  /* justify-content: flex-start; */
   min-width: 320px;
-  /* width: 25%; */
   height: 100%;
   padding: 20px;
   position: fixed;
-  /* right: 0; */
   right: -25%;
   top: 0;
   z-index: 4;
@@ -54,7 +51,7 @@ export const StyledNavMenu = styled.nav`
   background-color: var(--almost-black);
   box-shadow: 0 2px 10px black;
 
-  animation-duration: 0.3s;
+  animation-duration: 0.2s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
   animation-name: ${({ className }: any) =>
@@ -63,8 +60,6 @@ export const StyledNavMenu = styled.nav`
       : className === "closed"
       ? disappears
       : null};
-  /* animation-name: ${showsUp}; */
-  /* animation-name: ${disappears}; */
 `;
 
 export const BackgroundNavMenu = styled.div`

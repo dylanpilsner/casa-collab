@@ -13,7 +13,7 @@ export const StyledHeader = styled.header`
     background-color: var(--main-orange);
   }
 
-  @media (min-width: 1020px) {
+  @media (min-width: 869px) {
     position: relative;
 
     .scrolled {
@@ -31,26 +31,5 @@ export const HeaderContainer = styled(RowBox)`
 
   @media (min-width: 869px) {
     padding: 0 30px;
-  }
-`;
-
-export const UserContainer = styled.div`
-  display: flex;
-  align-items: center;
-  /* gap: 10px; */
-`;
-
-export const UserImg = styled.img`
-  width: 3.2rem;
-  border-radius: 50%;
-  cursor: pointer;
-  margin-right: 8px;
-`;
-
-export const UserName = styled(User)`
-  display: none;
-
-  @media (min-width: 669px) {
-    display: initial;
   }
 `;

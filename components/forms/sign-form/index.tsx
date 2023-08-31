@@ -2,7 +2,7 @@ import { StyledSignForm } from "../styled";
 import { TextField } from "@/ui/text-field";
 import { SecondaryButton } from "@/ui/buttons";
 import { ColumnBox } from "@/ui/box/styled";
-import { Subtitle, Title } from "@/ui/typography";
+import { StrongLargeText, Title } from "@/ui/typography";
 import { getCode, sign } from "@/lib/api";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -55,7 +55,7 @@ export function SignForm() {
   return (
     <ColumnBox>
       <Title>Ingresar</Title>
-      <Subtitle>Para continuar, ingrese su email</Subtitle>
+      <StrongLargeText>Para continuar, ingrese su email</StrongLargeText>
       {!email ? (
         <EmailForm callback={settingEmail} />
       ) : (

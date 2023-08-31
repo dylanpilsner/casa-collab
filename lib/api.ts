@@ -1,5 +1,3 @@
-import Cookies from "js-cookie";
-
 function setStorageData(key: string, value: Object) {
   localStorage.setItem(key, JSON.stringify(value));
 }

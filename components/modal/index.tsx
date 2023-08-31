@@ -1,4 +1,4 @@
-import { Subtitle, Title } from "@/ui/typography";
+import { StrongLargeText } from "@/ui/typography";
 import { StyledModal, StyledModalContainer, TextContainer } from "./styled";
 import { Close } from "@/ui/icons/styled";
 
@@ -19,10 +19,10 @@ export function Modal({ winStatus, closeModal }: Modal) {
       <StyledModal>
         <Close onClick={handleCloseModal} />
         <TextContainer>
-          <Subtitle bg="#fff">
+          <StrongLargeText bg="#fff">
             Contactanos para obtener más información sobre nuestro servicio y
             cómo adquirirlo!
-          </Subtitle>
+          </StrongLargeText>
         </TextContainer>
       </StyledModal>
     </StyledModalContainer>

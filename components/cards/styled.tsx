@@ -17,8 +17,7 @@ export const ContainerPrice = styled.div`
 `;
 
 export const CheckDiv = styled.div`
-  display: grid;
+  display: flex;
   gap: 0.5rem;
-  grid-auto-rows: auto;
-  grid-template-columns: repeat(1, auto 1fr);
+  align-items: center;
 `;

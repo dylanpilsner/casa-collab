@@ -2,7 +2,6 @@ import { NextRouter, useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import useSWR from "swr";
 import { fetchApi } from "./api";
-import Cookies from "js-cookie";
 
 function useGetLocalStorageData(key: string) {
   const [data, setData] = useState();

@@ -2,37 +2,46 @@ import styled from "styled-components";
 
 type Typography = {
   bg?: string;
+  align?: string;
+  margin?: string;
 };
 
 export const Title = styled.h1<Typography>`
   color: ${(props) => (props.bg ? props.bg : "black")};
   font-size: 2.5rem;
-  text-align: center;
+  text-align: ${({ align }: any) => align ?? "left"};
+  margin: ${({ margin }: any) => margin ?? "0"};
   font-family: var(--main-font);
 `;
+export const SecondaryTitle = styled(Title)`
+  font-size: 64px;
+  font-weight: 600;
+  font-family: var(--secondary-font);
+`;
 export const Subtitle = styled(Title).attrs({ as: "h2" })`
-  font-size: 1.5rem;
-  text-align: center;
+  font-family: var(--secondary-font);
+  font-weight: 600;
+  font-size: 32px;
 `;
 
-type Body = {
-  align?: string;
-};
+export const StrongLargeText = styled(Subtitle)`
+  font-size: 1.5rem;
+  font-weight: 600;
+`;
 
-export const Body = styled.p<Body>`
+export const Body = styled(StrongLargeText).attrs({ as: "p" })`
   color: ${((props: any) => props.bg) || "#fff"};
   font-weight: 400;
   font-size: 1rem;
-  text-align: ${((props: any) => props.align) || "center"};
   font-family: var(--main-font);
-
-  @media (max-width: 1020px) {
-    text-align: center !important;
-  }
 `;
 
-export const LogoText = styled.span`
-  font-family: "Poppins";
+export const BodyApp = styled(Body)`
+  font-family: var(--secondary-font);
+`;
+
+export const LogoText = styled(Body).attrs({ as: "span" })`
+  font-family: var(--secondary-font);
   font-size: 24px;
   font-weight: 600;
   color: var(--almost-black);
@@ -68,17 +77,14 @@ export const NavItem = styled.a`
 export const HeroTitle = styled(Title)`
   color: ${(props: any) => props.bg};
   font-size: 48px;
-  text-align: left;
   font-weight: 800;
-  margin: 0;
   max-width: 500px;
 
   @media (min-width: 1020px) {
   }
 `;
 
-export const HeroSubtitle = styled(Subtitle)`
-  text-align: left;
+export const HeroSubtitle = styled(StrongLargeText)`
   font-weight: 400;
   max-width: 371px;
 
@@ -87,21 +93,19 @@ export const HeroSubtitle = styled(Subtitle)`
   }
 `;
 
-export const FooterNav = styled.a`
+export const FooterNav = styled(LogoText).attrs({ as: "a" })`
   color: #2b3377;
-  font-family: "Poppins";
   font-size: 18px;
   font-weight: 600;
 `;
 
-export const Rights = styled.p`
+export const Rights = styled(LogoText).attrs({ as: "p" })`
   color: #5c5e87;
-  font-family: "Poppins";
   font-weight: 400;
   font-size: 16px;
 `;
 
-export const User = styled.span`
+export const UserName = styled(StrongLargeText).attrs({ as: "span" })`
   color: var(--almost-black);
   font-size: 16px;
   font-weight: 400;

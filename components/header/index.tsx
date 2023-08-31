@@ -6,10 +6,8 @@ export function Header() {
   const header = useHeader();
 
   return (
-    // <StyledHeader>
     <StyledHeader>
       {header ? <LoggedInHeader /> : <LoggedOutHeader />}
     </StyledHeader>
-    // </StyledHeader>
   );
 }

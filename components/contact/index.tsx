@@ -1,4 +1,4 @@
-import { Subtitle } from "@/ui/typography";
+import { StrongLargeText } from "@/ui/typography";
 import { ContactForm } from "../forms/contact-form";
 import { useContact, useLoader } from "@/lib/hooks";
 import { useState } from "react";
@@ -31,7 +31,7 @@ export function Contact() {
         visible={messageVisibility}
         onClose={closeMessage}
       />
-      <Subtitle id="contact">
+      <StrongLargeText id="contact" align="center" margin="20px 0">
         Podés contactarnos apretando{" "}
         <span
           style={{ color: "var(--main-orange)", cursor: "pointer" }}
@@ -39,7 +39,7 @@ export function Contact() {
         >
           aquí
         </span>
-      </Subtitle>
+      </StrongLargeText>
       <ContactForm
         contactStatus={contactStatus}
         closeContact={closeContact}

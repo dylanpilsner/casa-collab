@@ -48,7 +48,9 @@ export function PricingCard({
           return (
             <CheckDiv key={i.id}>
               {isChecked(i.checked)}
-              <Body align="start">{i.feature}</Body>
+              <Body align="start" margin="20px 0">
+                {i.feature}
+              </Body>
             </CheckDiv>
           );
         })}
