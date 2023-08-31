@@ -1,5 +1,4 @@
 import { RowBox } from "@/ui/box/styled";
-import { User } from "@/ui/typography";
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
