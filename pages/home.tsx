@@ -9,19 +9,19 @@ export default function Home() {
   );
 }
 
-export async function getServerSideProps(context: any) {
-  const cookie = context.req.cookies.user_cookie;
+// export async function getServerSideProps(context: any) {
+//   const cookie = context.req.cookies.user_cookie;
 
-  if (!cookie) {
-    return {
-      redirect: {
-        destination: "/sign-in",
-        permanent: false,
-      },
-    };
-  }
+//   if (!cookie) {
+//     return {
+//       redirect: {
+//         destination: "/sign-in",
+//         permanent: false,
+//       },
+//     };
+//   }
 
-  return {
-    props: {},
-  };
-}
+//   return {
+//     props: {},
+//   };
+// }
