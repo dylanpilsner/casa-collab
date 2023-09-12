@@ -3,7 +3,7 @@ function setStorageData(key: string, value: Object) {
 }
 
 export async function fetchApi(input: RequestInfo, options?: any) {
-  const BASE_URL = process.env.HOST || "https://casa-collab-backend.vercel.app/";
+  const BASE_URL = process.env.HOST || "https://casa-collab-backend.vercel.app";
   const url = BASE_URL + input;
 
   options = options || {};
