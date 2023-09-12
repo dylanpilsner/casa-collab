@@ -23,10 +23,13 @@ export const StyledContactForm = styled.form`
   border-radius: 10px;
 `;
 
-export const StyledSignForm = styled(StyledContactForm)`
+export const StyledForm = styled(StyledContactForm)`
   background-color: transparent;
   width: 100%;
   max-width: 500px;
   height: 55%;
   border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 `;

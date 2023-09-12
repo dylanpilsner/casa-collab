@@ -1,6 +1,6 @@
 import { Layout } from "@/components/layout";
 import { Landing } from "@/components/landing-component";
-import { useAuth } from "@/lib/hooks";
+import Cookies from "js-cookie";
 
 export default function LandingPage() {
   return (
@@ -23,8 +23,6 @@ export async function getServerSideProps(context: any) {
   }
 
   return {
-    props: {
-      logged: false,
-    },
+    props: {},
   };
 }

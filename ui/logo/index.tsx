@@ -18,7 +18,7 @@ export function Logo() {
           alt="logotipo"
         />
       </ImgContainer>
-      <LogoText>HomeWard</LogoText>
+      <LogoText style={{ cursor: "pointer" }}>HomeWard</LogoText>
     </LogoBox>
   );
 }

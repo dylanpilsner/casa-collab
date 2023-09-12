@@ -50,25 +50,6 @@ export const SectionContainer = styled.div`
   }
 `;
 
-export const AlternativeSection = styled.div`
-  position: absolute;
-  background-color: white;
-  width: 100%;
-  height: 50px;
-  bottom: -47px;
-  z-index: 10;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  transition: var(--default-transition);
-  /* opacity: 0%; */
-
-  &.opened {
-    display: flex;
-  }
-`;
-
 export const GroupContent = styled.div`
   margin-top: 80px;
   display: flex;
@@ -76,7 +57,12 @@ export const GroupContent = styled.div`
   gap: 50px;
 `;
 
-export const GroupMemberContainer = styled.div``;
+export const GroupMemberContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 40px;
+`;
 
 export const GroupMemberSeparator = styled.hr`
   margin-top: 30px;

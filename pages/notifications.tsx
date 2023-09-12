@@ -1,18 +1,18 @@
-import { HomeComponent } from "@/components/home";
 import { Layout } from "@/components/layout";
+import { NotificationsComponent } from "@/components/notifications";
 
-export default function Home() {
+export default function NotificactionsPage() {
   return (
     <Layout>
-      <HomeComponent />
+      <NotificationsComponent />
     </Layout>
   );
 }
 
 export async function getServerSideProps(context: any) {
-  const cookie = context.req.cookies.user_cookie;
+  const cookies = context.req.cookies.user_cookie;
 
-  if (!cookie) {
+  if (!cookies) {
     return {
       redirect: {
         destination: "/sign-in",

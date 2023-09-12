@@ -26,6 +26,7 @@ export async function fetchApi(input: RequestInfo, options?: any) {
   if (res.status >= 200 && res.status < 300) {
     return data;
   } else {
+    // window.location.href = "/";
     return { status: res.status, error: data };
   }
 }
@@ -56,8 +57,42 @@ export async function sign({ email, code }: any) {
   return auth;
 }
 
-export async function getProfile() {
-  const profile = await fetchApi("/me");
+export function signOut() {
+  return fetchApi("/auth", { method: "delete" });
+}
 
-  return profile;
+export async function sendFriendRequest(email: string) {
+  await fetchApi("/friend", { method: "post", body: { email } });
+}
+
+export async function addFriend(email: string) {
+  await fetchApi("/friend/add", { method: "post", body: { email } });
+}
+export async function declineFriend(notification_id: number) {
+  await fetchApi("/friend/delete", {
+    method: "delete",
+    body: { notification_id },
+  });
+}
+
+export function formatDate(date: Date) {
+  const day = date.getDate();
+  const monthNames = [
+    "ene",
+    "feb",
+    "mar",
+    "abr",
+    "may",
+    "jun",
+    "jul",
+    "ago",
+    "sep",
+    "oct",
+    "nov",
+    "dic",
+  ];
+  const month = monthNames[date.getMonth()];
+  const year = date.getFullYear();
+
+  return `${day} ${month}. ${year}`;
 }

@@ -32,3 +32,18 @@ export const HeaderContainer = styled(RowBox)`
     padding: 0 30px;
   }
 `;
+
+export const RightSectionContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  @media (min-width: 1020px) {
+    gap: 30px;
+  }
+`;
+
+export const FunctionContainer = styled.div`
+  display: flex;
+  gap: 5px;
+`;

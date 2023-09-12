@@ -1,7 +1,5 @@
-// import { useIsLogged } from "@/lib/hooks";
-import { Extend, Oval } from "@/ui/icons/styled";
+import { Dots, Extend, Oval } from "@/ui/icons/styled";
 import {
-  AlternativeSection,
   GroupContent,
   GroupHeader,
   GroupInformationContainer,
@@ -13,70 +11,69 @@ import { BodyApp, SecondaryTitle, Subtitle } from "@/ui/typography";
 import { User } from "@/ui/user";
 import { GroupMemberContainer } from "./styled";
 import { useState } from "react";
+import { DropDown } from "@/ui/dropdown/styled";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useAlternativeSection, useGetFriends, useHover } from "@/lib/hooks";
+import { formatDate } from "@/lib/api";
 
 export function HomeComponent() {
-  const [hover, setHover] = useState("closed");
-
-  function enableHover() {
-    setHover("opened");
-  }
-  function disableHover() {
-    setHover("closed");
-  }
+  const router = useRouter();
+  const section = useAlternativeSection();
+  const { friends } = useGetFriends();
+  const { hover, setOpenedStatus, setClosedStatus } =
+    useHover("alternativeSection");
+  const alternativeSection = section === "Tareas" ? "Gastos" : "Tareas";
+  const routeToGo = section === "Tareas" ? "expenses" : "tasks";
 
   return (
     <MainContainer>
       <GroupHeader>
         <GroupInformationContainer>
           <Oval />
-          <Subtitle margin="20px 0">25 ago. 2023</Subtitle>
-          <SecondaryTitle margin=" 0 0 20px">Familia 2023</SecondaryTitle>
+          <Subtitle margin="20px 0">{formatDate(new Date())}</Subtitle>
+          <SecondaryTitle margin=" 0 0 20px">Amigos</SecondaryTitle>
         </GroupInformationContainer>
         <SectionContainer
-          onMouseEnter={enableHover}
-          onMouseLeave={disableHover}
+          onMouseEnter={setOpenedStatus}
+          onMouseLeave={setClosedStatus}
         >
-          <BodyApp style={{ cursor: "pointer" }}>Tareas</BodyApp>
+          <BodyApp style={{ cursor: "pointer" }}>{alternativeSection}</BodyApp>
           <Extend style={{ placeSelf: "center" }} />
-          <AlternativeSection
-            className={hover}
+          <DropDown
+            className={hover.alternativeSection?.status}
             style={{ fontFamily: "var(--secondary-font)" }}
-            onClick={() => console.log("click")}
           >
-            <BodyApp align="center" style={{ cursor: "pointer" }}>
-              Gastos
+            <BodyApp
+              align="center"
+              style={{ cursor: "pointer" }}
+              onClick={() => router.push(`/group/${routeToGo}?groupId=1`)}
+            >
+              {section}
             </BodyApp>
-          </AlternativeSection>
+          </DropDown>
         </SectionContainer>
       </GroupHeader>
 
       <GroupContent>
-        <GroupMemberContainer>
-          <User userName="Dylan Pilsner" />
-          <GroupMemberSeparator />
-        </GroupMemberContainer>
-        {/* ACÁ TERMINAN EL USUARIO */}
-        <GroupMemberContainer>
-          <User userName="Claudia Cendra" />
-          <GroupMemberSeparator />
-        </GroupMemberContainer>
-        {/* ACÁ TERMINAN EL USUARIO */}
-        <GroupMemberContainer>
-          <User userName="Eduardo Pilsner" />
-          <GroupMemberSeparator />
-        </GroupMemberContainer>
-        {/* ACÁ TERMINAN EL USUARIO */}
-        <GroupMemberContainer>
-          <User userName="Tobías Pilsner" />
-          <GroupMemberSeparator />
-        </GroupMemberContainer>
-        {/* ACÁ TERMINAN EL USUARIO */}
-        <GroupMemberContainer>
-          <User userName="Goldina Pilsner" />
-          <GroupMemberSeparator />
-        </GroupMemberContainer>
-        {/* ACÁ TERMINAN EL USUARIO */}
+        {friends?.length === 0 && (
+          <BodyApp>Todavía no agregaste a ningún amigo.</BodyApp>
+        )}
+        {friends?.map((friend: any) => {
+          return (
+            <div key={friend.id}>
+              <GroupMemberContainer style={{}}>
+                <User userName={friend.full_name} />
+                <Dots />
+                {/* <BodyApp>Tareas realizadas</BodyApp> */}
+              </GroupMemberContainer>
+              <GroupMemberSeparator />
+            </div>
+          );
+        })}
       </GroupContent>
     </MainContainer>
   );
 }
+
+// PASAR A LOS AMIGOS POR PROPS EN getStaticProps

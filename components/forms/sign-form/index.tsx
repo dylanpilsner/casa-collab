@@ -1,4 +1,4 @@
-import { StyledSignForm } from "../styled";
+import { StyledForm } from "../styled";
 import { TextField } from "@/ui/text-field";
 import { SecondaryButton } from "@/ui/buttons";
 import { ColumnBox } from "@/ui/box/styled";
@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 
 function EmailForm({ callback }: any) {
   return (
-    <StyledSignForm onSubmit={callback}>
+    <StyledForm onSubmit={callback}>
       <TextField
         type="email"
         name="email"
@@ -18,16 +18,16 @@ function EmailForm({ callback }: any) {
         required
       />
       <SecondaryButton text="Siguiente" />
-    </StyledSignForm>
+    </StyledForm>
   );
 }
 
 function CodeForm({ callback }: any) {
   return (
-    <StyledSignForm onSubmit={callback}>
+    <StyledForm onSubmit={callback}>
       <TextField type="number" name="code" title="Código" required />
       <SecondaryButton text="Siguiente" />
-    </StyledSignForm>
+    </StyledForm>
   );
 }
 

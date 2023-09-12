@@ -6,6 +6,11 @@ import SuccessIcon from "./success.svg";
 import ExtendIcon from "./ampliar.svg";
 import CloseIcon from "./x.svg";
 import OvalShape from "./oval.svg";
+import AddFriendIcon from "./add-user.svg";
+import AddIcon from "./add.svg";
+import BellIcon from "./bell.svg";
+import DotsIcon from "./dots.svg";
+import DeclineIcon from "./decline.svg";
 
 export const Linkedin = styled(LinkedinIcon)``;
 
@@ -36,3 +41,15 @@ export const Oval = styled(OvalShape)`
     display: initial;
   }
 `;
+
+export const AddFriend = styled(AddFriendIcon)``;
+
+export const Add = styled(AddIcon)``;
+
+export const Bell = styled(BellIcon)``;
+
+export const Dots = styled(DotsIcon)`
+  cursor: pointer;
+`;
+
+export const Decline = styled(DeclineIcon)``;

@@ -1,4 +1,12 @@
-import { StyledMainButton, StyledSecondaryButton } from "./styled";
+import { Decline } from "../icons/styled";
+import { BodyApp } from "../typography";
+import {
+  StyledAcceptButton,
+  StyledDeclineButton,
+  StyledHeaderMainButton,
+  StyledMainButton,
+  StyledSecondaryButton,
+} from "./styled";
 import Send from "@/ui/icons/send.svg";
 
 type Button = {
@@ -12,6 +20,13 @@ export function MainButton({ text, callback, width }: Button) {
     <StyledMainButton onClick={callback} width={width}>
       {text}
     </StyledMainButton>
+  );
+}
+export function HeaderMainButton({ text, callback, width }: Button) {
+  return (
+    <StyledHeaderMainButton onClick={callback} width={width}>
+      {text}
+    </StyledHeaderMainButton>
   );
 }
 export function SecondaryButton({ text, callback, width }: Button) {
@@ -32,4 +47,12 @@ export function SendButton({ text, callback, width }: Button) {
       {text} <Send style={{ fill: "white" }} />
     </StyledMainButton>
   );
+}
+
+export function DeclineButton({ text, callback }: Button) {
+  return <StyledDeclineButton onClick={callback}>{text}</StyledDeclineButton>;
+}
+
+export function AcceptButton({ text, callback }: Button) {
+  return <StyledAcceptButton onClick={callback}>{text}</StyledAcceptButton>;
 }

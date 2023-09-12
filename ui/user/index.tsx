@@ -3,16 +3,15 @@ import { UserName } from "../typography";
 
 type UserHeader = {
   callback?: () => void;
+  name?: string;
+  img?: string;
 };
 
-export function UserHeader({ callback }: UserHeader) {
+export function UserHeader({ callback, name, img }: UserHeader) {
   return (
     <UserContainer>
-      <UserImg
-        src="https://res.cloudinary.com/denl6uihc/image/upload/v1692831428/vrtuo2ctutn5xkzzbuly.jpg"
-        onClick={callback}
-      />
-      <HeaderUserName>Dylan Pilsner</HeaderUserName>
+      <UserImg src={img ?? "/default_user.png"} onClick={callback} />
+      <HeaderUserName>{name}</HeaderUserName>
     </UserContainer>
   );
 }

@@ -4,6 +4,7 @@ type Typography = {
   bg?: string;
   align?: string;
   margin?: string;
+  pointer?: boolean;
 };
 
 export const Title = styled.h1<Typography>`
@@ -12,6 +13,7 @@ export const Title = styled.h1<Typography>`
   text-align: ${({ align }: any) => align ?? "left"};
   margin: ${({ margin }: any) => margin ?? "0"};
   font-family: var(--main-font);
+  cursor: ${({ pointer }: any) => (pointer ? "pointer" : "initial")};
 `;
 export const SecondaryTitle = styled(Title)`
   font-size: 64px;
@@ -45,6 +47,11 @@ export const LogoText = styled(Body).attrs({ as: "span" })`
   font-size: 24px;
   font-weight: 600;
   color: var(--almost-black);
+  display: none;
+
+  @media (min-width: 1020px) {
+    display: initial;
+  }
 `;
 
 export const NavItem = styled.a`

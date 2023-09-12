@@ -28,3 +28,17 @@ export const Article = styled.article<Article>`
   padding: 0 20px;
   background-color: ${(props) => (props.bgcolor ? props.bgcolor : "#fff")};
 `;
+
+export const LightningBox = styled.div`
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: rgb(238, 238, 238, 0.7);
+  }
+`;

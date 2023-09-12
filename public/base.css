@@ -38,5 +38,5 @@ a {
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: var(--main-orange);
+  background-color: var(--almost-black);
 }

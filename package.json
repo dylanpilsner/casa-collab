@@ -14,14 +14,16 @@
     "@types/node": "20.4.5",
     "@types/react": "18.2.17",
     "@types/react-dom": "18.2.7",
+    "js-cookie": "^3.0.5",
     "next": "13.4.12",
     "next-svgr": "^0.0.2",
     "react": "18.2.0",
     "react-awesome-reveal": "^4.2.5",
     "react-dom": "18.2.0",
     "styled-components": "^6.0.5",
-    "swr": "^2.2.1",
-    "typescript": "5.1.6"
+    "swr": "^2.2.0",
+    "typescript": "5.1.6",
+    "universal-cookie": "^6.1.1"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.3"

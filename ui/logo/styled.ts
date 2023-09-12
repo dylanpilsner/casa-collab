@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { RowBox } from "../box/styled";
 
-export const LogoBox = styled(RowBox)`
+export const LogoBox = styled.div`
+  display: flex;
+  align-items: center;
   gap: 7px;
   width: 200px;
   height: 60px;

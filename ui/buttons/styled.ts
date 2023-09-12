@@ -1,12 +1,12 @@
 import styled from "styled-components";
+import { MainButton } from ".";
 
-type SecondaryButton = {
+type Button = {
   width?: string;
   color?: string;
 };
 
-export const StyledMainButton = styled.button<SecondaryButton>`
-  display: none;
+export const StyledMainButton = styled.button<Button>`
   height: 60px;
   width: ${(props) => props.width ?? "100%"};
   /* width: 171px; */
@@ -22,6 +22,10 @@ export const StyledMainButton = styled.button<SecondaryButton>`
   &:hover {
     background-color: var(--orange-subtone);
   }
+`;
+
+export const StyledHeaderMainButton = styled(StyledMainButton)`
+  display: none;
 
   @media (min-width: 869px) {
     display: initial;
@@ -38,14 +42,27 @@ export const StyledSecondaryButton = styled(StyledMainButton)`
   }
 `;
 
-// export const StyledSecondaryButton = styled(StyledMainButton)`
-//   background-color: transparent;
-//   /* border: 2.2px solid var(--almost-black); */
-//   color: var(--english-walnut);
-//   border-radius: 5px;
+export const StyledDeclineButton = styled.button`
+  width: 120px;
+  height: 40px;
+  cursor: pointer;
+  background: red;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  background: #e62222;
+  font-family: var(--secondary-font);
+  color: #eee;
 
-//   &:hover {
-//     background-color: rgb(217, 217, 217, 0.5);
-//     /* color: #fff; */
-//   }
-// `;
+  &:hover {
+    background: #ff3636;
+  }
+`;
+
+export const StyledAcceptButton = styled(StyledDeclineButton)`
+  background-color: #14dd50;
+
+  &:hover {
+    background-color: #43e473;
+  }
+`;

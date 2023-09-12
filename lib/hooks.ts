@@ -1,6 +1,8 @@
+import useSWR from "swr";
+import useSWRImmutable from "swr/immutable";
 import { NextRouter, useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import useSWR from "swr";
+
 import { fetchApi } from "./api";
 
 function useGetLocalStorageData(key: string) {
@@ -17,7 +19,29 @@ function useGetLocalStorageData(key: string) {
   return data;
 }
 
-function redirect(data: any, router: NextRouter) {
+export function useUserScrolled() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollThreshold = 100;
+      if (window.scrollY > scrollThreshold) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return { scrolled };
+}
+
+function useRedirect(data: any, router: NextRouter) {
   if (!data.status && router.pathname === "/") {
     router.push("/home");
   }
@@ -62,7 +86,7 @@ export function useAuth() {
 
   useEffect(() => {
     fetchApi("/me").then((data) => {
-      redirect(data, router);
+      useRedirect(data, router);
     });
   }, []);
 }
@@ -105,4 +129,53 @@ export function useLoader() {
   }
 
   return { showLoader, hideLoader, loader };
+}
+
+export function useProfile() {
+  const { data } = useSWRImmutable("/me", fetchApi);
+  return data;
+}
+export function useGetFriends() {
+  const { data, mutate } = useSWRImmutable("/friend", fetchApi);
+  return { friends: data?.friends, mutateFriends: mutate };
+}
+export function useGetNotifications() {
+  const { data, mutate } = useSWR("/notifications", fetchApi);
+  return { notifications: data, mutateNotifications: mutate };
+}
+
+export function useAlternativeSection() {
+  const router = useRouter();
+  const [section, setSection] = useState("closed");
+
+  useEffect(() => {
+    const pathnameArray = router.pathname.split("/");
+
+    if (pathnameArray[2] === "expenses") {
+      setSection("Gastos");
+    }
+    if (pathnameArray[2] === "tasks" || router.pathname === "/home") {
+      setSection("Tareas");
+    }
+  }, [router.pathname]);
+
+  return section;
+}
+
+export function useHover(key: string) {
+  const [hover, setHover] = useState({} as any);
+
+  useEffect(() => {
+    setHover({ ...hover, [key]: { status: "closed" } });
+  }, []);
+
+  function setOpenedStatus() {
+    setHover({ ...hover, [key]: { status: "opened" } });
+  }
+
+  function setClosedStatus() {
+    setHover({ ...hover, [key]: { status: "closed" } });
+  }
+
+  return { hover, setOpenedStatus, setClosedStatus };
 }

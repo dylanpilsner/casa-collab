@@ -1,10 +1,9 @@
-import { NavItem } from "@/ui/typography";
-import {
-  BackgroundNavMenu,
-  StyledDesktopNavMenu,
-  StyledNavMenu,
-} from "./styled";
+import { Body, NavItem } from "@/ui/typography";
+import { MenuContainer, StyledDesktopNavMenu, StyledNavMenu } from "./styled";
 import { CloseNav } from "@/ui/icons/styled";
+import { signOut } from "@/lib/api";
+import { useRouter } from "next/router";
+import { BackgroundModal } from "@/ui/background/styled";
 
 export function LandingDesktopNavMenu() {
   return (
@@ -22,11 +21,33 @@ type navStatus = {
 };
 
 export function NavMenu({ navStatus, callback }: navStatus) {
+  const router = useRouter();
+
+  async function logOut() {
+    await signOut();
+    if (callback) {
+      callback();
+    }
+    router.push("/");
+  }
+
   return (
-    <BackgroundNavMenu className={navStatus}>
+    <BackgroundModal className={navStatus}>
       <StyledNavMenu className={navStatus}>
-        <CloseNav onClick={callback} />
+        <MenuContainer>
+          <CloseNav onClick={callback} />
+          <Body
+            style={{ marginTop: "90px", cursor: "pointer" }}
+            bg="white"
+            onClick={() => router.push("/me")}
+          >
+            Cuenta
+          </Body>
+          <Body style={{ cursor: "pointer" }} bg="white" onClick={logOut}>
+            Cerrar sesión
+          </Body>
+        </MenuContainer>
       </StyledNavMenu>
-    </BackgroundNavMenu>
+    </BackgroundModal>
   );
 }
