@@ -1,9 +1,6 @@
-function setStorageData(key: string, value: Object) {
-  localStorage.setItem(key, JSON.stringify(value));
-}
-
 export async function fetchApi(input: RequestInfo, options?: any) {
-  const BASE_URL = process.env.HOST || "https://casa-collab-backend-whxk-dev.fl0.io";
+  const BASE_URL =
+    process.env.HOST || "https://casa-collab-backend-whxk-dev.fl0.io";
   const url = BASE_URL + input;
 
   options = options || {};

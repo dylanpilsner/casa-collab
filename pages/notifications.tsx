@@ -1,7 +1,11 @@
 import { Layout } from "@/components/layout";
 import { NotificationsComponent } from "@/components/notifications";
+import { useEffect } from "react";
 
-export default function NotificactionsPage() {
+export default function NotificactionsPage({ cookies }: any) {
+  useEffect(() => {
+    console.log(cookies);
+  }, []);
   return (
     <Layout>
       <NotificationsComponent />
@@ -10,9 +14,9 @@ export default function NotificactionsPage() {
 }
 
 export async function getServerSideProps(context: any) {
-  const cookies = context.req.cookies.user_cookie;
+  const cookies = context.req.headers.cookie as string;
 
-  if (!cookies) {
+  if (cookies.slice(0, 11) !== "user_cookie") {
     return {
       redirect: {
         destination: "/sign-in",
