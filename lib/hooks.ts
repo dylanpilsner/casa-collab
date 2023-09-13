@@ -132,8 +132,8 @@ export function useLoader() {
 }
 
 export function useProfile() {
-  const { data } = useSWRImmutable("/me", fetchApi);
-  return data;
+  const { data, mutate } = useSWRImmutable("/me", fetchApi);
+  return { profile: data, mutateProfile: mutate };
 }
 export function useGetFriends() {
   const { data, mutate } = useSWRImmutable("/friend", fetchApi);

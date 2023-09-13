@@ -6,6 +6,7 @@ import { StrongLargeText, Title } from "@/ui/typography";
 import { getCode, sign } from "@/lib/api";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 
 function EmailForm({ callback }: any) {
   return (
@@ -48,6 +49,7 @@ export function SignForm() {
     const res = await sign({ email, code: target.code.value });
 
     if (res.token) {
+      Cookies.set("auth_token", res.token);
       router.push("/home");
     }
   }

@@ -21,7 +21,7 @@ export function LoggedInHeader() {
   const [friendForm, setFriendForm] = useState("") as any;
   const [groupForm, setGroupForm] = useState("") as any;
   const { scrolled } = useUserScrolled();
-  const profile = useProfile();
+  const { profile } = useProfile();
   const router = useRouter();
 
   function toggleNavMenu() {

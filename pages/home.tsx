@@ -1,7 +1,14 @@
 import { HomeComponent } from "@/components/home";
 import { Layout } from "@/components/layout";
+import { useEffect } from "react";
+import Cookies from "js-cookie";
 
-export default function Home() {
+export default function Home({ cookie }: any) {
+  useEffect(() => {
+    // console.log(Cookies.get("auth_token"));
+    console.log(cookie);
+  }, []);
+
   return (
     <Layout>
       <HomeComponent />
@@ -9,19 +16,21 @@ export default function Home() {
   );
 }
 
-// export async function getServerSideProps(context: any) {
-//   const cookie = context.req.cookies.user_cookie;
+export async function getServerSideProps(context: any) {
+  const cookie = context.req.cookies.auth_token;
+  // const cookie = 1;
+  // const cookie = Cookies.get("auth_token");
 
-//   if (!cookie) {
-//     return {
-//       redirect: {
-//         destination: "/sign-in",
-//         permanent: false,
-//       },
-//     };
-//   }
+  // if (!cookie) {
+  //   return {
+  //     redirect: {
+  //       destination: "/sign-in",
+  //       permanent: false,
+  //     },
+  //   };
+  // }
 
-//   return {
-//     props: {},
-//   };
-// }
+  return {
+    props: { cookie },
+  };
+}
