@@ -14,7 +14,7 @@ export default function NotificactionsPage({ cookies }: any) {
 }
 
 export async function getServerSideProps(context: any) {
-  const cookies = context.req.headers.cookie as string;
+  const cookies = context.req.cookies;
 
   // if (cookies.slice(0, 11) !== "user_cookie") {
   //   return {
