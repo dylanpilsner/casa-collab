@@ -1,6 +1,5 @@
 export async function fetchApi(input: RequestInfo, options?: any) {
-  const BASE_URL =
-    process.env.HOST || "https://casa-collab-backend-whxk-dev.fl0.io";
+  const BASE_URL = process.env.HOST || "http://localhost:3000";
   const url = BASE_URL + input;
 
   options = options || {};

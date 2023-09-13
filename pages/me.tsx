@@ -5,7 +5,7 @@ import { useProfile } from "@/lib/hooks";
 import { useEffect } from "react";
 
 export default function Profile() {
-  const profile = useProfile();
+  const { profile } = useProfile();
   const name = profile?.full_name;
   const email = profile?.email;
 
