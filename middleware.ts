@@ -8,11 +8,15 @@ export function middleware(request: NextRequest) {
 
   console.log(request.nextUrl.pathname);
 
-  if ((cookie && pathname === "/") || pathname === "/sign-in") {
+  if (cookie && pathname === "/") {
     return NextResponse.redirect(new URL("/home", request.url));
   }
 
-  if ((!cookie && pathname !== "/") || pathname !== "/sign-in") {
+  if (cookie && pathname === "/sign-in") {
+    return NextResponse.redirect(new URL("/home", request.url));
+  }
+
+  if (!cookie && pathname !== "/" && pathname !== "/sign-in") {
     return NextResponse.redirect(new URL("/sign-in", request.url));
   }
 }
