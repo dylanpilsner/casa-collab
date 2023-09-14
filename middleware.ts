@@ -12,8 +12,8 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/home", request.url));
   }
 
-  if (!cookie && pathname !== "/") {
-    return NextResponse.redirect(new URL("/", request.url));
+  if ((!cookie && pathname !== "/") || pathname !== "/sign-in") {
+    return NextResponse.redirect(new URL("/sign-in", request.url));
   }
 }
 
