@@ -7,22 +7,3 @@ export default function Home({ isLogged }: any) {
     </Layout>
   );
 }
-
-// export async function getServerSideProps(context: any) {
-//   const cookie = context.req.cookies.user_cookie;
-
-//   if (!cookie) {
-//     return {
-//       redirect: {
-//         destination: "/sign-in",
-//         permanent: false,
-//       },
-//     };
-//   }
-
-//   return {
-//     props: {
-//       logged: true,
-//     },
-//   };
-// }

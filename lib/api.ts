@@ -1,6 +1,11 @@
+import { cookie } from "@/utils";
+
 export async function fetchApi(input: RequestInfo, options?: any) {
-  const BASE_URL = process.env.HOST || "http://localhost:3000";
+  const BASE_URL =
+    process.env.HOST || "https://casa-collab-backend-whxk-dev.fl0.io";
   const url = BASE_URL + input;
+
+  const token = cookie.get("auth_token");
 
   options = options || {};
 
@@ -10,6 +15,10 @@ export async function fetchApi(input: RequestInfo, options?: any) {
   };
 
   options.credentials = "include";
+
+  if (token) {
+    options.headers.authorization = `Bearer ${token}`;
+  }
 
   if (options.body) {
     options.body = JSON.stringify(options.body);
@@ -39,8 +48,6 @@ export async function sendForm(form: any) {
 }
 
 export async function getCode(email: string) {
-  // const res=  await fetch("http://localhost:3001/")
-
   return await fetchApi("/auth", { method: "post", body: { email } });
 }
 
@@ -51,10 +58,6 @@ export async function sign({ email, code }: any) {
   });
 
   return auth;
-}
-
-export function signOut() {
-  return fetchApi("/auth", { method: "delete" });
 }
 
 export async function sendFriendRequest(email: string) {
@@ -69,26 +72,4 @@ export async function declineFriend(notification_id: number) {
     method: "delete",
     body: { notification_id },
   });
-}
-
-export function formatDate(date: Date) {
-  const day = date.getDate();
-  const monthNames = [
-    "ene",
-    "feb",
-    "mar",
-    "abr",
-    "may",
-    "jun",
-    "jul",
-    "ago",
-    "sep",
-    "oct",
-    "nov",
-    "dic",
-  ];
-  const month = monthNames[date.getMonth()];
-  const year = date.getFullYear();
-
-  return `${day} ${month}. ${year}`;
 }

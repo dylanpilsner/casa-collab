@@ -1,7 +1,7 @@
 import { Body, NavItem } from "@/ui/typography";
 import { MenuContainer, StyledDesktopNavMenu, StyledNavMenu } from "./styled";
 import { CloseNav } from "@/ui/icons/styled";
-import { signOut } from "@/lib/api";
+import { signOut } from "@/utils";
 import { useRouter } from "next/router";
 import { BackgroundModal } from "@/ui/background/styled";
 
@@ -23,8 +23,8 @@ type navStatus = {
 export function NavMenu({ navStatus, callback }: navStatus) {
   const router = useRouter();
 
-  async function logOut() {
-    await signOut();
+  function logOut() {
+    signOut();
     if (callback) {
       callback();
     }

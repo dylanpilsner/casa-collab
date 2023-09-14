@@ -15,20 +15,3 @@ export default function Profile() {
     </Layout>
   );
 }
-
-export async function getServerSideProps(context: any) {
-  const cookies = context.req.cookies.user_cookie;
-
-  if (!cookies) {
-    return {
-      redirect: {
-        destination: "/sign-in",
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: {},
-  };
-}

@@ -10,12 +10,10 @@ import {
 import { BodyApp, SecondaryTitle, Subtitle } from "@/ui/typography";
 import { User } from "@/ui/user";
 import { GroupMemberContainer } from "./styled";
-import { useState } from "react";
 import { DropDown } from "@/ui/dropdown/styled";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { useAlternativeSection, useGetFriends, useHover } from "@/lib/hooks";
-import { formatDate } from "@/lib/api";
+import { formatDate } from "@/utils";
 
 export function HomeComponent() {
   const router = useRouter();
