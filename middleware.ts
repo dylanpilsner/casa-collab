@@ -6,8 +6,6 @@ export function middleware(request: NextRequest) {
   const cookie = request.cookies.get("auth_token");
   const pathname = request.nextUrl.pathname;
 
-  console.log(request.nextUrl.pathname);
-
   if (cookie && pathname === "/") {
     return NextResponse.redirect(new URL("/home", request.url));
   }

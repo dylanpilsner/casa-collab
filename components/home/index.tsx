@@ -1,19 +1,16 @@
-import { Dots, Extend, Oval } from "@/ui/icons/styled";
+import { Extend, Oval } from "@/ui/icons/styled";
 import {
-  GroupContent,
   GroupHeader,
   GroupInformationContainer,
-  GroupMemberSeparator,
   MainContainer,
   SectionContainer,
 } from "./styled";
 import { BodyApp, SecondaryTitle, Subtitle } from "@/ui/typography";
-import { User } from "@/ui/user";
-import { GroupMemberContainer } from "./styled";
 import { DropDown } from "@/ui/dropdown/styled";
 import { useRouter } from "next/router";
 import { useAlternativeSection, useGetFriends, useHover } from "@/lib/hooks";
 import { formatDate } from "@/utils";
+import { FriendsComponent } from "../friends-component";
 
 export function HomeComponent() {
   const router = useRouter();
@@ -41,35 +38,19 @@ export function HomeComponent() {
           <DropDown
             className={hover.alternativeSection?.status}
             style={{ fontFamily: "var(--secondary-font)" }}
+            bottom="-50px"
           >
             <BodyApp
               align="center"
               style={{ cursor: "pointer" }}
-              onClick={() => router.push(`/group/${routeToGo}?groupId=1`)}
+              onClick={() => router.push(routeToGo)}
             >
               {section}
             </BodyApp>
           </DropDown>
         </SectionContainer>
       </GroupHeader>
-
-      <GroupContent>
-        {friends?.length === 0 && (
-          <BodyApp>Todavía no agregaste a ningún amigo.</BodyApp>
-        )}
-        {friends?.map((friend: any) => {
-          return (
-            <div key={friend.id}>
-              <GroupMemberContainer style={{}}>
-                <User userName={friend.full_name} />
-                <Dots />
-                {/* <BodyApp>Tareas realizadas</BodyApp> */}
-              </GroupMemberContainer>
-              <GroupMemberSeparator />
-            </div>
-          );
-        })}
-      </GroupContent>
+      <FriendsComponent data={friends} />
     </MainContainer>
   );
 }

@@ -1,24 +1,27 @@
 import styled from "styled-components";
 
-export const DropDown = styled.div`
+type DropDown = {
+  bottom?: string;
+  gap?: string;
+};
+
+export const DropDown = styled.div<DropDown>`
   position: absolute;
-  /* background-color: white; */
-  /* background-color: var(--cooper); */
   background-color: var(--default-white);
-  width: 100%;
+  min-width: 100%;
+  padding: 10px;
   min-height: 50px;
-  bottom: -47px;
+  bottom: ${({ bottom }: any) => bottom ?? "initial"};
+  gap: ${({ gap }: any) => gap ?? "initial"};
   z-index: 10;
   display: none;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   border-radius: 4px;
   transition: var(--default-transition);
 
   &.opened {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 `;

@@ -66,3 +66,33 @@ export const StyledAcceptButton = styled(StyledDeclineButton)`
     background-color: #43e473;
   }
 `;
+
+export const StyledFirstOptionButton = styled.button`
+  background-color: var(--main-orange);
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  display: inline-block;
+  transition: all 0.15s ease;
+  border-radius: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  font-family: var(--secondary-font);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--secondary-orange);
+  }
+`;
+export const StyledSecondOptionButton = styled(StyledFirstOptionButton)`
+  margin-top: 0.5rem;
+  background-color: rgba(249, 250, 251, 1);
+  color: rgba(107, 114, 128, 1);
+
+  &:hover {
+    background-color: rgb(230, 231, 233);
+  }
+`;

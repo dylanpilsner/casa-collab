@@ -1,6 +1,7 @@
 import {
   FunctionContainer,
   HeaderContainer,
+  Notifications,
   RightSectionContainer,
 } from "./styled";
 import { Logo } from "@/ui/logo";
@@ -11,7 +12,7 @@ import { HeaderMainButton } from "@/ui/buttons";
 import { LandingDesktopNavMenu, NavMenu } from "../nav-menu/desktop";
 import { useRouter } from "next/router";
 import { UserHeader } from "@/ui/user";
-import { useProfile, useUserScrolled } from "@/lib/hooks";
+import { useGetNotifications, useProfile, useUserScrolled } from "@/lib/hooks";
 import { Add, AddFriend, Bell } from "@/ui/icons/styled";
 import { LightningBox } from "@/ui/box/styled";
 import { AddFriendForm, AddGroupForm } from "../forms/add-form";
@@ -23,6 +24,10 @@ export function LoggedInHeader() {
   const { scrolled } = useUserScrolled();
   const { profile } = useProfile();
   const router = useRouter();
+  const { notifications } = useGetNotifications();
+  const pendingNotifications = notifications?.filter(
+    (i: any) => i.status === "pending"
+  );
 
   function toggleNavMenu() {
     if (!navStatus || navStatus === "closed") {
@@ -58,14 +63,20 @@ export function LoggedInHeader() {
         <Logo />
         <RightSectionContainer>
           <FunctionContainer>
-            <LightningBox onClick={() => router.push("/notifications")}>
-              <Bell />
+            <LightningBox
+              style={{ position: "relative" }}
+              onClick={() => router.push("/notifications")}
+            >
+              {pendingNotifications?.length > 0 && (
+                <Notifications>{pendingNotifications.length}</Notifications>
+              )}
+              <Bell></Bell>
             </LightningBox>
-            <LightningBox>
-              <Add onClick={openGroupForm} />
+            <LightningBox onClick={openGroupForm}>
+              <Add />
             </LightningBox>
-            <LightningBox>
-              <AddFriend onClick={openFriendForm} />
+            <LightningBox onClick={openFriendForm}>
+              <AddFriend />
             </LightningBox>
           </FunctionContainer>
           <UserHeader

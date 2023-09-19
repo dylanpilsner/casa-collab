@@ -13,6 +13,10 @@ export const Input = styled.input`
   text-indent: 10px;
   border-radius: 6px;
   border: none;
+
+  &.not-editable {
+    background-color: #c3c3c3;
+  }
 `;
 
 export const StyledTextArea = styled.textarea`

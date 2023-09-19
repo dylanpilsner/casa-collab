@@ -6,17 +6,24 @@ import { TextField } from "@/ui/text-field";
 import { MainButton } from "@/ui/buttons";
 import { Close } from "@/ui/icons/styled";
 import { addFriend, sendFriendRequest } from "@/lib/api";
-import { useRouter } from "next/router";
-import { useGetFriends } from "@/lib/hooks";
+import { useFocus, useGetFriends } from "@/lib/hooks";
+import { useRef } from "react";
 
 type Form = {
   visibility: string;
-  callback?: () => void;
+  callback: () => void;
 };
 
 export function AddFriendForm({ visibility, callback }: Form) {
-  const router = useRouter();
   const { mutateFriends } = useGetFriends();
+  const containerEl = useRef() as any;
+  useFocus(containerEl.current, visibility);
+
+  function handleKeyUp(e: any) {
+    if (e.key === "Escape") {
+      callback();
+    }
+  }
 
   async function handleSubmit(e: any) {
     e.preventDefault();
@@ -31,7 +38,12 @@ export function AddFriendForm({ visibility, callback }: Form) {
   }
 
   return (
-    <BackgroundModal className={visibility}>
+    <BackgroundModal
+      tabIndex={0}
+      ref={containerEl}
+      onKeyUp={handleKeyUp}
+      className={visibility}
+    >
       <FormContainer>
         <AddForm onSubmit={handleSubmit}>
           <Close onClick={callback} />
@@ -51,7 +63,14 @@ export function AddFriendForm({ visibility, callback }: Form) {
   );
 }
 export function AddGroupForm({ visibility, callback }: Form) {
-  const router = useRouter();
+  const containerEl = useRef() as any;
+  useFocus(containerEl.current, visibility);
+
+  function handleKeyUp(e: any) {
+    if (e.key === "Escape") {
+      callback();
+    }
+  }
 
   async function handleSubmit(e: any) {
     e.preventDefault();
@@ -65,7 +84,12 @@ export function AddGroupForm({ visibility, callback }: Form) {
   }
 
   return (
-    <BackgroundModal className={visibility}>
+    <BackgroundModal
+      tabIndex={0}
+      ref={containerEl}
+      onKeyUp={handleKeyUp}
+      className={visibility}
+    >
       <FormContainer>
         <AddForm onSubmit={handleSubmit}>
           <Close onClick={callback} />

@@ -1,22 +1,16 @@
 import useSWR from "swr";
 import useSWRImmutable from "swr/immutable";
 import { NextRouter, useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction, Dispatch } from "react";
 
 import { fetchApi } from "./api";
 
-function useGetLocalStorageData(key: string) {
-  const [data, setData] = useState();
-
+export function useFocus(ref: any, changer: any) {
   useEffect(() => {
-    const localStorageInfo = localStorage.getItem(key);
-
-    if (localStorageInfo) {
-      setData(JSON.parse(localStorageInfo));
+    if (ref) {
+      ref.focus();
     }
-  }, []);
-
-  return data;
+  }, [changer]);
 }
 
 export function useUserScrolled() {
@@ -41,23 +35,6 @@ export function useUserScrolled() {
   return { scrolled };
 }
 
-function useRedirect(data: any, router: NextRouter) {
-  if (!data.status && router.pathname === "/") {
-    router.push("/home");
-  }
-  if (data.status >= 300 && router.pathname !== "/") {
-    router.push("/sign-in");
-    console.log(3);
-  }
-
-  if (!data.status) {
-    if (router.pathname === "/") {
-      console.log(2);
-      router.push("/home");
-    }
-  }
-}
-
 export function useHeader() {
   const router = useRouter();
   const pathname = router.pathname;
@@ -72,23 +49,6 @@ export function useHeader() {
   }, [pathname]);
 
   return isLogged;
-}
-
-export function useIsLogged() {
-  useEffect(() => {
-    console.log("test");
-  });
-}
-
-export function useAuth() {
-  const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    fetchApi("/me").then((data) => {
-      useRedirect(data, router);
-    });
-  }, []);
 }
 
 export function usePricingModal() {
@@ -178,4 +138,32 @@ export function useHover(key: string) {
   }
 
   return { hover, setOpenedStatus, setClosedStatus };
+}
+
+export function useVisibility(
+  visibility: boolean,
+  setter: Dispatch<SetStateAction<boolean>>
+) {
+  useEffect(() => {
+    setter(visibility);
+  }, [visibility]);
+}
+
+export function useModal(
+  visibility: boolean,
+  setter: Dispatch<SetStateAction<boolean>>
+) {
+  useEffect(() => {
+    setter(visibility);
+  }, [visibility]);
+
+  function openModal() {
+    setter(true);
+  }
+
+  function closeModal() {
+    setter(false);
+  }
+
+  return { openModal, closeModal };
 }

@@ -8,10 +8,11 @@ export default function Profile() {
   const { profile } = useProfile();
   const name = profile?.full_name;
   const email = profile?.email;
+  const age = profile?.age;
 
   return (
     <Layout>
-      <ProfileForm name={name} email={email} />
+      <ProfileForm name={name} age={age} email={email} />
     </Layout>
   );
 }

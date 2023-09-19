@@ -1,8 +1,7 @@
 import { cookie } from "@/utils";
 
 export async function fetchApi(input: RequestInfo, options?: any) {
-  const BASE_URL =
-    process.env.HOST || "https://casa-collab-backend-whxk-dev.fl0.io";
+  const BASE_URL = process.env.HOST || "http://localhost:3000";
   const url = BASE_URL + input;
 
   const token = cookie.get("auth_token");
@@ -27,7 +26,7 @@ export async function fetchApi(input: RequestInfo, options?: any) {
   const res = await fetch(url, options);
   const data = await res.json();
 
-  console.log(data);
+  // console.log(data);
   if (res.status >= 200 && res.status < 300) {
     return data;
   } else {
@@ -72,4 +71,19 @@ export async function declineFriend(notification_id: number) {
     method: "delete",
     body: { notification_id },
   });
+}
+
+export async function deleteFriend(friend_id: number) {
+  await fetchApi("/friend", {
+    method: "delete",
+    body: { friend_id },
+  });
+}
+
+export async function updateProfile(fields: {
+  full_name?: string;
+  age?: number;
+  profile_img?: string;
+}) {
+  return await fetchApi("/me", { method: "put", body: fields });
 }

@@ -47,3 +47,19 @@ export const FunctionContainer = styled.div`
   display: flex;
   gap: 5px;
 `;
+
+export const Notifications = styled.div`
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  position: absolute;
+  border-radius: 50%;
+  font-family: var(--main-font);
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 5px;
+`;

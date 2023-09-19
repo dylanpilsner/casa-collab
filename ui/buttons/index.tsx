@@ -3,8 +3,10 @@ import { BodyApp } from "../typography";
 import {
   StyledAcceptButton,
   StyledDeclineButton,
+  StyledFirstOptionButton,
   StyledHeaderMainButton,
   StyledMainButton,
+  StyledSecondOptionButton,
   StyledSecondaryButton,
 } from "./styled";
 import Send from "@/ui/icons/send.svg";
@@ -55,4 +57,17 @@ export function DeclineButton({ text, callback }: Button) {
 
 export function AcceptButton({ text, callback }: Button) {
   return <StyledAcceptButton onClick={callback}>{text}</StyledAcceptButton>;
+}
+
+export function FirstOptionButton({ text, callback }: Button) {
+  return (
+    <StyledFirstOptionButton onClick={callback}>{text}</StyledFirstOptionButton>
+  );
+}
+export function SecondOptionButton({ text, callback }: Button) {
+  return (
+    <StyledSecondOptionButton onClick={callback}>
+      {text}
+    </StyledSecondOptionButton>
+  );
 }

@@ -31,13 +31,19 @@ export function ContactForm({
     <FormContainer style={{ display: isVisible }}>
       <StyledContactForm onSubmit={handleSubmit}>
         <Close onClick={handleCloseContact} />
-        <TextField title="Tu nombre" name="name" required />
+        <TextField
+          title="Tu nombre"
+          name="name"
+          required
+          color="var(--default-white)"
+        />
         <TextField
           title="Tu email"
           name="email"
           type="email"
           placeholder="ejemplo@gmail.com"
           required
+          color="var(--default-white)"
         />
         <TextArea title="Mensaje" name="message" required />
         <div style={{ display: "inherit", justifyContent: "center" }}>

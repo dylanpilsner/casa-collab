@@ -16,6 +16,7 @@ export function Logo() {
           src="/logotipo.png"
           style={{ height: "100%", width: "100%" }}
           alt="logotipo"
+          className="logo"
         />
       </ImgContainer>
       <LogoText style={{ cursor: "pointer" }}>HomeWard</LogoText>

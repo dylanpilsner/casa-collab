@@ -9,6 +9,7 @@ type TextField = {
   type?: string;
   color?: string;
   value?: string;
+  notEditable?: boolean;
 };
 
 export function TextField({
@@ -19,12 +20,6 @@ export function TextField({
   required,
   color,
 }: TextField) {
-  const [inputValue, setInputValue] = useState("");
-
-  function handleChange(e: any) {
-    setInputValue(e.target.value);
-  }
-
   return (
     <div>
       <Label
@@ -38,7 +33,6 @@ export function TextField({
         placeholder={placeholder}
         id={name}
         required={required}
-        onChange={handleChange}
       />
     </div>
   );
@@ -51,8 +45,12 @@ export function ControlledTextField({
   required,
   color,
   value,
+  notEditable,
 }: TextField) {
   const [inputValue, setInputValue] = useState("");
+
+  const isEditable = notEditable ? "not-editable" : "";
+  const isReadOnly = notEditable ? true : false;
 
   useEffect(() => {
     if (value) {
@@ -78,6 +76,8 @@ export function ControlledTextField({
         id={name}
         value={inputValue}
         required={required}
+        readOnly={isReadOnly}
+        className={isEditable}
         onChange={handleChange}
       />
     </div>

@@ -49,21 +49,3 @@ export const SectionContainer = styled.div`
     align-self: center;
   }
 `;
-
-export const GroupContent = styled.div`
-  margin-top: 80px;
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-`;
-
-export const GroupMemberContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-right: 40px;
-`;
-
-export const GroupMemberSeparator = styled.hr`
-  margin-top: 30px;
-`;

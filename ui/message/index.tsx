@@ -1,7 +1,19 @@
 import { useEffect, useState } from "react";
 import { Close } from "../icons/styled";
-import { Body } from "../typography";
-import { MessageContainer } from "./styled";
+import { Body, BodyApp, StrongLargeText, Subtitle } from "../typography";
+import { ButtonsContainer, MessageContainer, WarningContainer } from "./styled";
+import { BackgroundModal } from "../background/styled";
+import {
+  AcceptButton,
+  DeclineButton,
+  FirstOptionButton,
+  SecondOptionButton,
+} from "../buttons";
+import {
+  StyledFirstOptionButton,
+  StyledSecondOptionButton,
+} from "../buttons/styled";
+import { useModal, useVisibility } from "@/lib/hooks";
 
 type Message = {
   message: string;
@@ -11,9 +23,7 @@ type Message = {
 
 export function Message({ message, visible, onClose }: Message) {
   const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-    setIsVisible(visible);
-  }, [visible]);
+  useVisibility(visible, setIsVisible);
 
   function handleCloseMessage() {
     onClose();
@@ -35,5 +45,56 @@ export function Message({ message, visible, onClose }: Message) {
         onClick={handleCloseMessage}
       />
     </MessageContainer>
+  );
+}
+
+type Alert = {
+  visible: boolean;
+  message: string;
+  title: string;
+  onClose: () => void;
+  firstCallback?: () => Promise<void>;
+  secondCallback?: () => void;
+};
+
+export function AlertMessage({
+  visible,
+  message,
+  onClose,
+  firstCallback,
+  title,
+}: Alert) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const { closeModal } = useModal(visible, setIsVisible);
+
+  function handleFirstOption() {
+    if (firstCallback) {
+      firstCallback();
+    }
+    onClose();
+    closeModal();
+  }
+  function handleSecondOption() {
+    onClose();
+    closeModal();
+  }
+
+  return (
+    <BackgroundModal className={isVisible ? "opened" : "closed"}>
+      <WarningContainer className="card">
+        <StrongLargeText align="center">{title}</StrongLargeText>
+
+        <BodyApp align="center">{message}</BodyApp>
+
+        <ButtonsContainer>
+          <SecondOptionButton
+            callback={handleFirstOption}
+            text="Eliminar amigo"
+          />
+          <FirstOptionButton callback={handleSecondOption} text="Cancelar" />
+        </ButtonsContainer>
+      </WarningContainer>
+    </BackgroundModal>
   );
 }

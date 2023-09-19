@@ -1,3 +1,4 @@
+import { ColumnBox } from "@/ui/box/styled";
 import styled from "styled-components";
 
 export const FormContainer = styled.div`
@@ -32,4 +33,9 @@ export const StyledForm = styled(StyledContactForm)`
   display: flex;
   flex-direction: column;
   gap: 40px;
+`;
+
+export const SignContainer = styled(ColumnBox)`
+  background-color: var(--main-orange);
+  height: 70vh;
 `;
