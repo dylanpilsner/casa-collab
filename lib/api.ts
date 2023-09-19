@@ -1,7 +1,7 @@
 import { cookie } from "@/utils";
 
 export async function fetchApi(input: RequestInfo, options?: any) {
-  const BASE_URL = process.env.HOST || "http://localhost:3000";
+  const BASE_URL = process.env.HOST || "https://casa-collab-backend-whxk-dev.fl0.io";
   const url = BASE_URL + input;
 
   const token = cookie.get("auth_token");
